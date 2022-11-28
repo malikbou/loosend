@@ -1,0 +1,2 @@
+class Toilet < ApplicationRecord
+end
