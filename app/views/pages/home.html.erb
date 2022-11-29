@@ -5,11 +5,14 @@
     <% @toilets.each do |toilet| %>
       <div class="col">
         <div class="card">
-          <h2><%= link_to "##{toilet.id} - #{toilet.name}", toilet_path(toilet) %></h2>
+          <h2><%= link_to "#{toilet.name}", toilet_path(toilet) %></h2>
           <div class="card-body">
-            <h5><strong> <%= link_to toilet.name, toilet_path(toilet) %> </strong></h5>
+            <p><%= "Address: #{toilet.address}" %></p>
             <p><%= "Rating: #{toilet.rating} stars" %></p>
-            <p><%= "Fee: £#{toilet.fee} per hour." %></p>
+            <p><%= "Opens at: #{toilet.opens_at}" %></p>
+            <p><%= "Closes at: #{toilet.closes_at}" %></p>
+            <p><%= "Code: #{toilet.toilet_code}" %></p>
+            <p><%= "Fee: £#{toilet.fee} per hour" %></p>
           </div>
         </div>
       </div>
