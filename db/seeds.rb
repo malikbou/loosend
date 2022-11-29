@@ -45,7 +45,18 @@ puts "Finished toilets!"
 # Faker::Movies::Lebowski.quote
 # Faker::Quote.famous_last_words
 
+puts "doing a lil test"
+# random_users = User.limit(5).order("RANDOM()")
+random_toilets = Toilet.limit(100).order("RANDOM()")
+
 puts "Creating reviews..."
+# finding random users or toilets
+# User.limit(5).order("RANDOM()")
+100.times do
+  attributes = { user_id: User.find(rand(1..5)).id, toilet_id: random_toilets[rand(1..99)].id, toilet_rating: rand(1..5), hygiene_rating: rand(1..5), comment: Faker::Movies::Lebowski.quote }
+  review = Review.create!(attributes)
+  puts "#{review.user.first_name} wrote a review for #{review.toilet.name}: #{review.comment}"
+end
 puts "Finished reviews!"
 
 puts "Creating features..."
