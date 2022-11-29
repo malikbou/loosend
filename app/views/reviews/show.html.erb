@@ -1,8 +1,9 @@
 <div class=“container”>
   <h3><strong><%= "#{@review.user.email.capitalize}, you left a review for #{@review.toilet.name}" %></strong></h3>
   <ul>
-    <li><%= "Rating: #{@review.rating}" %></li>
+    <li><%= "Overall Rating: #{@review.toilet_rating}" %></li>
+    <li><%= "Hygiene Rating: #{@review.hygiene_rating}" %></li>
     <li><%= "Content: #{@review.comment}" %></li>
   </ul>
-  <%= link_to "Homepage", root_path %>
+  <%= link_to "Back to Toilets", root_path %>
 </div>

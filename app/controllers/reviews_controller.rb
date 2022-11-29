@@ -1,21 +1,14 @@
 class ReviewsController < ApplicationController
-  def all
-    @reviews = Review.all
-  end
-
-  def new
-    @review = Review.new
-  end
+  before_action :set_toilet, only: %i[new create]
 
   def create
-    @toilet = Toilet.find(params[:toilet_id])
     @review = Review.new(review_params)
     @review.toilet = @toilet
     @review.user = current_user
     if @review.save
-      redirect_to review_show_path(@review)
+      redirect_to review_path(@review)
     else
-      render template: "toilets/show", status: :unprocessable_entity
+      render template: "new", status: :unprocessable_entity
     end
   end
 
@@ -25,11 +18,11 @@ class ReviewsController < ApplicationController
 
   private
 
-  # def my_reviews
-  #   @reviews = Review.where(user_id: current_user.id)
-  # end
+  def set_toilet
+    @toilet = Toilet.find(params[:toilet_id])
+  end
 
   def review_params
-    params.require(:reviews).permit(:toilet_rating)
+    params.require(:review).permit(:toilet_rating, :hygiene_rating, :comment)
   end
 end

@@ -1,11 +1,14 @@
-<h2><%= @toilet.name %></h2>
-<p><%= @toilet.address %></p>
-<p><%= @toilet.rating %></p>
-
 <div class="container">
+  <h2><strong><%= "#{@toilet.name}" %></strong></h2>
+  <h3><%= "#{@toilet.address} | #{@toilet.rating} stars" %></h3>
+
+
+  <h5><%= "Leave a review for #{@toilet.name}" %></h5>
   <%= simple_form_for [@toilet, @review] do |f| %>
     <%= f.input :toilet_rating %>
+    <%= f.input :hygiene_rating %>
     <%= f.input :comment %>
-    <%= f.button :submit, value: "Leave review", class: "btn btn-primary" %>
+    <%= f.submit "Leave review", class: "btn btn-primary" %>
   <% end %>
+  <%= link_to "Back to Toilets", root_path %>
 </div>

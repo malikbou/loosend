@@ -1,11 +1,8 @@
 class ToiletsController < ApplicationController
-  before_action :set_toilet, only: [:index, :show]
-
-  # def index
-  #   @toilets = Toilet.all
-  # end
+  before_action :set_toilet, only: [:show]
 
   def show
+    @toilet = Toilet.find(params[:id])
     @review = Review.new
   end
 
@@ -15,7 +12,7 @@ class ToiletsController < ApplicationController
     @toilet = Toilet.find(params[:id])
   end
 
-  def toilet_params
-    params.require(:toilets).permit(:name, :address, :opens_at, :closes_at, :fee, :toilet_code, :rating)
-  end
+  # def toilet_params
+  #   params.require(:toilets).permit(:name, :address, :opens_at, :closes_at, :fee, :toilet_code, :rating)
+  # end
 end
