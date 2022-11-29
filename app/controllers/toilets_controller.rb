@@ -1,9 +1,9 @@
 class ToiletsController < ApplicationController
   before_action :set_toilet, only: [:index, :show]
 
-  def index
-    @toilets = Toilet.all
-  end
+  # def index
+  #   @toilets = Toilet.all
+  # end
 
   def show
     @review = Review.new

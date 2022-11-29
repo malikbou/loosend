@@ -1,2 +1,18 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="container">
+  <h1>Welcome to the loos.end homepage!</h1>
+
+  <div class="row row-cols-1 row-cols-md-4 g-4 d-flex justify-content-center mt-3">
+    <% @toilets.each do |toilet| %>
+      <div class="col">
+        <div class="card">
+          <h2><%= link_to "##{toilet.id} - #{toilet.name}", toilet_path(toilet) %></h2>
+          <div class="card-body">
+            <h5><strong> <%= link_to toilet.name, toilet_path(toilet) %> </strong></h5>
+            <p><%= "Rating: #{toilet.rating} stars" %></p>
+            <p><%= "Fee: £#{toilet.fee} per hour." %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
