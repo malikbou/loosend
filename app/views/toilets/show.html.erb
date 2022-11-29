@@ -1,0 +1,11 @@
+<h2><%= @toilet.name %></h2>
+<p><%= @toilet.address %></p>
+<p><%= @toilet.rating %></p>
+
+<div class="container">
+  <%= simple_form_for [@toilet, @review] do |f| %>
+    <%= f.input :toilet_rating %>
+    <%= f.input :comment %>
+    <%= f.button :submit, value: "Leave review", class: "btn btn-primary" %>
+  <% end %>
+</div>

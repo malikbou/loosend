@@ -1,3 +1,4 @@
 class Toilet < ApplicationRecord
-  has_many :reviews, :toilet_features
+  has_many :reviews
+  has_many :toilet_features
 end
