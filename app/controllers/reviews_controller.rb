@@ -36,6 +36,6 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:start_date, :end_date)
+    params.require(:review).permit(:rating)
   end
 end
