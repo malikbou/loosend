@@ -43,11 +43,13 @@ addresses = LONDON.dup
 end
 puts "Finished toilets!"
 
-puts "Creating reviews..."
+puts "Creating reviews from random users for random toilets..."
+random_users = User.limit(5).order("RANDOM()")
 random_toilets = Toilet.limit(100).order("RANDOM()")
+
 200.times do
   random_comment = [Faker::Movies::Lebowski.quote, Faker::Quote.famous_last_words]
-  attributes = { user_id: User.find(rand(1..5)).id, toilet_id: random_toilets[rand(1..99)].id, toilet_rating: rand(1..5), hygiene_rating: rand(1..5), comment: random_comment.sample }
+  attributes = { user_id:random_users.sample.id, toilet_id: random_toilets.sample.id, toilet_rating: rand(1..5), hygiene_rating: rand(1..5), comment: random_comment.sample }
   review = Review.create!(attributes)
   puts "#{review.user.first_name} wrote a review for #{review.toilet.name}: #{review.comment}"
 end
@@ -61,4 +63,17 @@ end
 puts "Finished features!"
 
 puts "Creating toilet features..."
+# for 100 toilets
+Toilet.all.each do |toilet|
+  4.times do
+    attributes = { toilet_id: toilet.id, feature_id: Feature.find(rand(1..Feature.count)).id }
+    toilet_feature = ToiletFeature.create!(attributes)
+    join_query = "
+      INNER JOIN toilet_features
+        ON features.id = toilet_features.feature_id
+      INNER JOIN toilets
+        ON toilets.id = toilet_features.toilet_id"
+    puts "Created: #{Feature.joins(join_query).name}"
+  end
+end
 puts "Finished toilet features!"
