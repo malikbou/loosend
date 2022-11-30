@@ -1,6 +1,8 @@
 require 'faker'
 require_relative 'addresses'
-include LondonAddresses
+require_relative 'features'
+
+include LondonAddresses, FeatureList
 
 puts "Cleaning database..."
 
@@ -27,7 +29,7 @@ user4 = { email: "chirantan@phones.com", password: "chirantanlovesphones", first
 user5 = { email: "malik@chocolate.com", password: "malikloveschocolate", first_name: "Malik", last_name: "Bouaoudia" }
 [user1, user2, user3, user4, user5].each do |attributes|
   user = User.create!(attributes)
-  puts "Created #{user.email}"
+  puts "Created #{user.first_name} with email: #{user.email}"
 end
 puts "Finished users!"
 
@@ -41,26 +43,22 @@ addresses = LONDON.dup
 end
 puts "Finished toilets!"
 
-# for reviews
-# Faker::Movies::Lebowski.quote
-# Faker::Quote.famous_last_words
-
-puts "doing a lil test"
-# random_users = User.limit(5).order("RANDOM()")
-random_toilets = Toilet.limit(100).order("RANDOM()")
-
 puts "Creating reviews..."
-# finding random users or toilets
-# User.limit(5).order("RANDOM()")
-100.times do
-  attributes = { user_id: User.find(rand(1..5)).id, toilet_id: random_toilets[rand(1..99)].id, toilet_rating: rand(1..5), hygiene_rating: rand(1..5), comment: Faker::Movies::Lebowski.quote }
+random_toilets = Toilet.limit(100).order("RANDOM()")
+200.times do
+  random_comment = [Faker::Movies::Lebowski.quote, Faker::Quote.famous_last_words]
+  attributes = { user_id: User.find(rand(1..5)).id, toilet_id: random_toilets[rand(1..99)].id, toilet_rating: rand(1..5), hygiene_rating: rand(1..5), comment: random_comment.sample }
   review = Review.create!(attributes)
   puts "#{review.user.first_name} wrote a review for #{review.toilet.name}: #{review.comment}"
 end
 puts "Finished reviews!"
 
 puts "Creating features..."
-puts "Finished features"
+FEATURE_LIST.each do |f|
+  feature = Feature.create!(name: f)
+  puts "Added #{feature.name} to features"
+end
+puts "Finished features!"
 
 puts "Creating toilet features..."
 puts "Finished toilet features!"
