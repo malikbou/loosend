@@ -1,5 +1,9 @@
 <div class="container">
   <h1>Welcome to the loos.end homepage!</h1>
+  <div style="width: 100%; height: 600px;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 
   <div class="row row-cols-1 row-cols-md-4 g-4 d-flex justify-content-center mt-3">
     <% @toilets.each do |toilet| %>
