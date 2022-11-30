@@ -4,7 +4,12 @@ class ToiletsController < ApplicationController
   def show
     @toilet = Toilet.find(params[:id])
     @review = Review.new
+    @reviews = Review.where(toilet_id: params[:id])
   end
+
+  # def toilet_reviews
+  #   @reviews = Review.where(toilet_id: params[:id])
+  # end
 
   private
 
