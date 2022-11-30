@@ -9,7 +9,7 @@
     <%= f.input :comment %>
     <%= f.submit "Leave review", class: "btn btn-primary" %>
   <% end %>
-  <%= link_to "Back to Toilets", root_path %>
+  <%= link_to "Back to Toilets", toilets_path %>
 
   <h5 class="mt-3"><%= "Reviews for #{@toilet.name} left by other users" %></h5>
   <ul class="list-group">
