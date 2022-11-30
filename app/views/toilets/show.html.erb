@@ -5,7 +5,6 @@
   <h5><%= "Leave a review for #{@toilet.name}" %></h5>
   <%= simple_form_for [@toilet, @review] do |f| %>
     <%= f.input :toilet_rating %>
-    <%= f.input :hygiene_rating %>
     <%= f.input :comment %>
     <%= f.submit "Leave review", class: "btn btn-primary" %>
   <% end %>
@@ -18,7 +17,6 @@
         <%= "Review left by: #{review.user.first_name} at #{review.created_at}" %>
         <p>
           <%= "Overall Rating: #{review.toilet_rating}" %>
-          <%= "Hygiene Rating: #{review.hygiene_rating}" %>
         </p>
         <p><%= "Comment: #{review.comment}" %></p>
       </li>

@@ -101,7 +101,6 @@ random_toilets = Toilet.limit(100).order("RANDOM()")
     user_id: random_users.sample.id,
     toilet_id: random_toilets.sample.id,
     toilet_rating: rand(1..5),
-    hygiene_rating: rand(1..5),
     comment: random_comment.sample
   }
   review = Review.create!(attributes)
