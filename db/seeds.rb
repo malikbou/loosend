@@ -7,10 +7,10 @@ include LondonAddresses, FeatureList
 puts "Cleaning database..."
 
 ToiletFeature.destroy_all
-puts "Destroyed reviews"
+puts "Destroyed toilet features"
 
 Feature.destroy_all
-puts "Destroyed reviews"
+puts "Destroyed features"
 
 Review.destroy_all
 puts "Destroyed reviews"
@@ -22,11 +22,12 @@ User.destroy_all
 puts "Destroyed users"
 
 puts "Creating users..."
-user1 = { email: "admin@admin.com", password: "adminadmin", first_name: "admin", last_name: "admin" }
-user2 = { email: "daniela@cupcakes.com", password: "danielalovescupcakes", first_name: "Daniela", last_name: "Socaciu" }
-user3 = { email: "gabriel@cookies.com", password: "gabriellovescookies", first_name: "Gabriel", last_name: "Bijlmakers" }
-user4 = { email: "chirantan@phones.com", password: "chirantanlovesphones", first_name: "Chirantan", last_name: "Sahasrabudhe" }
-user5 = { email: "malik@chocolate.com", password: "malikloveschocolate", first_name: "Malik", last_name: "Bouaoudia" }
+
+user1 = { email: "admin@toil.et", password: "loo.send", first_name: "admin", last_name: "admin" }
+user2 = { email: "daniela@tmail.com", password: "cleanLatrine1", first_name: "Daniela", last_name: "Socaciu" }
+user3 = { email: "gabriel@wc.com", password: "joeBidet", first_name: "Gabriel", last_name: "Bijlmakers" }
+user4 = { email: "chirantan@sandas.com", password: "loosRus", first_name: "Chirantan", last_name: "Sahasrabudhe" }
+user5 = { email: "malik@tolet.com", password: "love2poop", first_name: "Malik", last_name: "Bouaoudia" }
 [user1, user2, user3, user4, user5].each do |attributes|
   user = User.create!(attributes)
   puts "Created #{user.first_name} with email: #{user.email}"
@@ -34,6 +35,7 @@ end
 puts "Finished users!"
 
 puts "Creating toilets..."
+
 addresses = LONDON.dup
 100.times do
   attributes = { name: Faker::Book.title, address: addresses.sample, opens_at: '10:00:00', closes_at: '19:00:00', fee: rand(0.00..10.00).round(2), toilet_code: rand(1000..9999), rating: rand(1..5)}
