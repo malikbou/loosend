@@ -23,6 +23,6 @@ class ReviewsController < ApplicationController
   end
 
   def review_params
-    params.require(:review).permit(:toilet_rating, :hygiene_rating, :comment)
+    params.require(:review).permit(:toilet_rating, :comment)
   end
 end

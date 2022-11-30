@@ -51,7 +51,7 @@ random_toilets = Toilet.limit(100).order("RANDOM()")
 
 200.times do
   random_comment = [Faker::Movies::Lebowski.quote, Faker::Quote.famous_last_words]
-  attributes = { user_id:random_users.sample.id, toilet_id: random_toilets.sample.id, toilet_rating: rand(1..5), hygiene_rating: rand(1..5), comment: random_comment.sample }
+  attributes = { user_id:random_users.sample.id, toilet_id: random_toilets.sample.id, toilet_rating: rand(1..5), comment: random_comment.sample }
   review = Review.create!(attributes)
   puts "#{review.user.first_name} wrote a review for #{review.toilet.name}: #{review.comment}"
 end
