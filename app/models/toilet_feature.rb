@@ -4,4 +4,6 @@ class ToiletFeature < ApplicationRecord
 
   has_many :features
   has_many :toilets, dependent: :destroy
+
+  validates :toilet_id, uniqueness: { scope: :feature_id }
 end
