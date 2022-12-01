@@ -1,0 +1,427 @@
+
+.bigdiv {
+  padding-top: 40px;
+}
+
+.div-toilet {
+  background: rgb(255, 255, 255);
+}
+#toilet-lid {
+  height: 15px;
+  width: 200px;
+  border-radius:6px;
+  position: absolute;
+  left: calc((110% - 350px) / 2);
+  top: calc((120% - 210px) / 2);
+  transform-origin: 192.5px 7.5px;
+  animation-name: lid-opening;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-out;
+}
+#toilet-bowl {
+  height: 80px;
+  width: 200px;
+  border-radius: 6px 6px 100px 100px;
+  position: absolute;
+  left: calc((110% - 350px) / 2);
+  top: calc((120% - 165px) / 2);
+  box-shadow: 0 0 0 9px #97D8C4;
+}
+#toilet-leg {
+  height: 190px;
+  width: 165px;
+  border-radius: 6px;
+  position: absolute;
+  left: calc((110% - 200px) / 2);
+  top: calc((120% - 165px) / 2);
+}
+#toilet-tank {
+  height: 200px;
+  width: 100px;
+  border-radius: 6px;
+  position: absolute;
+  left: calc((110% + 68px) / 2);
+  top: calc((120% - 400px) / 2);
+}
+#toilet-tank-lid {
+  height: 15px;
+  width: 100px;
+  border-radius: 6px 6px 0 0;
+  position: absolute;
+  left: calc((110% + 68px) / 2);
+  top: calc((120% - 440px) / 2);
+}
+#flush-lever {
+  height: 15px;
+  width: 50px;
+  background-color: #ccc;
+  border-radius: 6px;
+  position: absolute;
+  left: calc((110% + 120px) / 2);
+  top: calc((120% - 360px) / 2);
+  transform-origin: 8px 8px;
+  animation-name: lever-rotation;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+}
+@keyframes lever-rotation {
+  10% {
+    transform: rotate(0);
+  }
+  17% {
+    transform: rotate(60deg);
+  }
+  24% {
+    transform: rotate(0);
+  }
+}
+@keyframes lid-opening {
+  30%{
+    transform: rotate(0);
+  }
+  40% {
+    transform: rotate(90deg);
+  }
+  85% {
+    transform: rotate(90deg);
+  }
+  95%{
+    transform: rotate(0);
+  }
+}
+#toilet-bowl-overlay {
+  height: 80px;
+  width: 200px;
+  border-radius: 6px 6px 100px 100px;
+  position: absolute;
+  left: calc((110% - 350px) / 2);
+  top: calc((120% - 165px) / 2);
+}
+
+.waterimg {
+  position: absolute;
+  left: calc((110% - 256px) / 2 - 1px);
+  top: calc((120% - 228px) / 2 + 55px);
+  background-color: transparent;
+  height: 112px;
+  width: 91px;
+  animation-name: water;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+}
+
+// #water {
+//   position: absolute;
+//   left: calc((100% - 200px) / 2 - 1px);
+//   top: calc((120% - 205px) / 2 + 55px);
+//   background-color: #3882FF;
+//   height: 40px;
+//   width: 27px;
+//   animation-name: water;
+//   animation-duration: 6s;
+//   animation-iteration-count: infinite;
+// }
+// #water:after {
+//   background-color: transparent;
+//   content: '';
+//   border-radius: 50%;
+//   position: absolute;
+//   width: 25px;
+//   height: 25px;
+//   border: 25px solid #3882FF;
+//   border-color: #3882FF transparent transparent #3882FF;
+//   transform: rotate(45deg);
+//   top: -22px;
+//   animation-name: water-right;
+//   animation-duration: 6s;
+//   animation-iteration-count: infinite;
+// }
+// #water:before {
+//   background-color: transparent;
+//   content: '';
+//   border-radius: 50%;
+//   position: absolute;
+//   width: 25px;
+//   height: 25px;
+//   border: 25px solid #3882FF;
+//   border-color: #3882FF transparent transparent #3882FF;
+//   transform: rotate(45deg);
+//   top: -22px;
+//   right: 0px;
+//   animation-name: water-left;
+//   animation-duration: 6s;
+//   animation-iteration-count: infinite;
+// }
+@keyframes water {
+  30%{
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-60px);
+  }
+  45% {
+    transform: translateY(-70px);
+  }
+  50% {
+    transform: translateY(-60px);
+  }
+  55% {
+    transform: translateY(-75px);
+  }
+  57% {
+    transform: translateY(-60px);
+  }
+  60% {
+    transform: translateY(-75px);
+  }
+  65% {
+    transform: translateY(-65px);
+  }
+  70% {
+    transform: translateY(-75px);
+  }
+  75% {
+    transform: translateY(-60px);
+  }
+  80% {
+    transform: translateY(-75px);
+  }
+  90%{
+    transform: translateY(0);
+  }
+}
+@keyframes water-right {
+  30%{
+    transform: rotate(45deg);
+  }
+  40% {
+    transform: rotate(30deg);
+  }
+  45% {
+    transform: rotate(65deg);
+  }
+  50% {
+    transform: rotate(30deg);
+  }
+  55% {
+    transform: rotate(65deg);
+  }
+  57% {
+    transform: rotate(30deg);
+  }
+  60% {
+    transform: rotate(65deg);
+  }
+  65% {
+    transform: rotate(30deg);
+  }
+  70% {
+    transform: rotate(65deg);
+  }
+  75% {
+    transform: rotate(30deg);
+  }
+  80% {
+    transform: rotate(65deg);
+  }
+  90%{
+    transform: rotate(45deg);
+  }
+}
+@keyframes water-left {
+  30%{
+    transform: rotate(45deg);
+  }
+  40% {
+    transform: rotate(65deg);
+  }
+  45% {
+    transform: rotate(30deg);
+  }
+  50% {
+    transform: rotate(65deg);
+  }
+  55% {
+    transform: rotate(30deg);
+  }
+  57% {
+    transform: rotate(65deg);
+  }
+  60% {
+    transform: rotate(30deg);
+  }
+  65% {
+    transform: rotate(65deg);
+  }
+  70% {
+    transform: rotate(30deg);
+  }
+  75% {
+    transform: rotate(65deg);
+  }
+  80% {
+    transform: rotate(30deg);
+  }
+  90%{
+    transform: rotate(45deg);
+  }
+}
+#pin img {
+  background-color: transparent;
+  width: 90px;
+  height: 90px;
+  position: absolute;
+  left: calc((110% - 256px) / 2 - 1px);
+  top: calc((120% - 250px) / 2 + 55px); /* POSITION OF MARKER (CHANGE FIRST PIXEL STAT) */
+  animation-name: pin;
+  animation-duration: 6s; /* DURATION OF ANIMATION OF THE MARKER */
+  animation-iteration-count: infinite;
+}
+#pin:after {
+  background-color: transparent;
+  content: '';
+  position: absolute;
+  transform: rotate(45deg);
+  top: -22px;
+  animation-name: pin-right;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+}
+#pin:before {
+  background-color: transparent;
+  content: '';
+  position: absolute;
+  transform: rotate(45deg);
+  top: -22px;
+  right: 0px;
+  animation-name: pin-left;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+}
+@keyframes pin-left {
+  30%{
+    transform: rotate(45deg);
+  }
+  40% {
+    transform: rotate(65deg);
+  }
+  45% {
+    transform: rotate(30deg);
+  }
+  50% {
+    transform: rotate(65deg);
+  }
+  55% {
+    transform: rotate(30deg);
+  }
+  57% {
+    transform: rotate(65deg);
+  }
+  60% {
+    transform: rotate(30deg);
+  }
+  65% {
+    transform: rotate(65deg);
+  }
+  70% {
+    transform: rotate(30deg);
+  }
+  75% {
+    transform: rotate(65deg);
+  }
+  80% {
+    transform: rotate(30deg);
+  }
+  90%{
+    transform: rotate(45deg);
+  }
+}
+@keyframes pin-right {
+  30%{
+    transform: rotate(45deg);
+  }
+  40% {
+    transform: rotate(30deg);
+  }
+  45% {
+    transform: rotate(65deg);
+  }
+  50% {
+    transform: rotate(30deg);
+  }
+  55% {
+    transform: rotate(65deg);
+  }
+  57% {
+    transform: rotate(30deg);
+  }
+  60% {
+    transform: rotate(65deg);
+  }
+  65% {
+    transform: rotate(30deg);
+  }
+  70% {
+    transform: rotate(65deg);
+  }
+  75% {
+    transform: rotate(30deg);
+  }
+  80% {
+    transform: rotate(65deg);
+  }
+  90%{
+    transform: rotate(45deg);
+  }
+}
+@keyframes pin {
+  30%{
+    transform: translateY(0);
+    /* original position */
+  }
+  40% {
+    transform: translateY(-150px);
+    /* first position */
+  }
+  45% {
+    transform: translateY(-180px);
+    /* second higher position (take 5 from highest) */
+  }
+  50% {
+    transform: translateY(-150px);
+    /* back to first */
+  }
+  55% {
+    transform: translateY(-185px);
+    /* highest position */
+  }
+  57% {
+    transform: translateY(-150px);
+    /* back to first position */
+  }
+  60% {
+    transform: translateY(-185px);
+    /* back to highest position */
+  }
+  65% {
+    transform: translateY(-175px);
+    /* second lower position (add 5 to first) */
+  }
+  70% {
+    transform: translateY(-185px);
+    /* back to highest position */
+  }
+  75% {
+    transform: translateY(-150px);
+    /* back to first position */
+  }
+  80% {
+    transform: translateY(-185px);
+    /* back to highest position and final highest position */
+  }
+  90%{
+    transform: translateY(0);
+    /* back to original (inside toilet) */
+  }
+}
