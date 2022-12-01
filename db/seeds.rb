@@ -74,6 +74,8 @@ end
 puts "Finished features!"
 puts "\n"
 
+# Toilet.near([51.50, 0.12],200)
+
 puts "Creating toilets..."
 addresses = LONDON.dup
 100.times do

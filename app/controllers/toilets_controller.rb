@@ -2,12 +2,13 @@ class ToiletsController < ApplicationController
   before_action :set_toilet, only: [:show]
 
   def index
+    @lewagon_coordinates = [51.53, -0.07]
     if params[:format].present?
       feature = Feature.where("name = '#{params[:format]}'")
       @name = feature[0].name
-      @toilets = feature[0].toilets
+      @toilets = feature[0].toilets.near(@lewagon_coordinates, 20, :order => :distance)
     else
-      @toilets = Toilet.all
+      @toilets = Toilet.near(@lewagon_coordinates, 20, :order => :distance)
     end
     @markers = @toilets.geocoded.map do |toilet|
       {
@@ -23,7 +24,6 @@ class ToiletsController < ApplicationController
     @toilet = Toilet.find(params[:id])
     @review = Review.new
     @reviews = Review.where(toilet_id: params[:id])
-    @toilets = Toilet.all
     @markers = [
       {
         lat: @toilet.latitude,
