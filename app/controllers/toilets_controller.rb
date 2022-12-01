@@ -18,14 +18,14 @@ class ToiletsController < ApplicationController
     @review = Review.new
     @reviews = Review.where(toilet_id: params[:id])
     @toilets = Toilet.all
-    @markers = @toilets.geocoded.map do |toilet|
+    @markers = [
       {
-        lat: toilet.latitude,
-        lng: toilet.longitude,
-        info_window: render_to_string(partial: "info_window", locals: {toilet: toilet}),
+        lat: @toilet.latitude,
+        lng: @toilet.longitude,
+        info_window: render_to_string(partial: "info_window", locals: {toilet: @toilet}),
         image_url: helpers.asset_url("toilet-paper.png")
       }
-    end
+    ]
     @marker = {
       lat: @toilet.latitude,
       lng: @toilet.longitude,

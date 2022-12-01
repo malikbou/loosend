@@ -3,11 +3,11 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static values = {
     apiKey: String,
-    markers: Array,
-    marker: Object
+    markers: Array
   }
 
   connect() {
+    console.log("test")
     mapboxgl.accessToken = this.apiKeyValue
 
     this.map = new mapboxgl.Map({
@@ -16,9 +16,6 @@ export default class extends Controller {
     })
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
-    this.#addMarkerToMap()
-    this.#fitMapToMarker()
-
     // Add geolocate control to the map.
     this.map.addControl(
       new mapboxgl.GeolocateControl({
@@ -32,6 +29,7 @@ export default class extends Controller {
       })
     );
   }
+
   // for toilet index page
   #addMarkersToMap() {
     this.markersValue.forEach((marker) => {
@@ -56,30 +54,6 @@ export default class extends Controller {
   #fitMapToMarkers() {
     const bounds = new mapboxgl.LngLatBounds()
     this.markersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
-    this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
-  }
-
-  // Solo marker - Toilet Show
-  #addMarkerToMap() {
-    const popup = new mapboxgl.Popup().setHTML(this.markerValue.info_window)
-    // Create a HTML element for your custom marker
-    const newMarker = document.createElement("div")
-    newMarker.className = "marker"
-    newMarker.style.backgroundImage = `url('${this.markerValue.image_url}')`
-    newMarker.style.backgroundSize = "contain"
-    newMarker.style.width = "50px"
-    newMarker.style.height = "50px"
-
-    // Pass the element as an argument to the new marker
-    new mapboxgl.Marker(newMarker)
-      .setLngLat([this.markerValue.lng, this.markerValue.lat])
-      .setPopup(popup)
-      .addTo(this.map)
-}
-
-  #fitMapToMarker() {
-    const bounds = new mapboxgl.LngLatBounds()
-    bounds.extend([ this.markerValue.lng, this.markerValue.lat ])
     this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
   }
 }
