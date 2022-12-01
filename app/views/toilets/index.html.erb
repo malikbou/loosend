@@ -1,5 +1,8 @@
 <div class="container">
   <h1>See all toilets near you!</h1>
+    <% Feature.all.each do |feature| %>
+      <%= link_to feature.name, toilets_path(feature) %>
+    <% end %>
   <div style="width: 100%; height: 500px;"
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"
