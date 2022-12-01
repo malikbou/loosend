@@ -4,9 +4,9 @@ module FeatureList
     'Men',
     'Accessible',
     'Gender Neutral',
-    'Children',
     'Baby Changing',
-    'Urinal Only',
-    'Automatic'
+    'Mirror',
+    'Automatic',
+    'Privacy'
   ]
 end

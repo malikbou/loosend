@@ -1,13 +1,112 @@
-  <div style="width: 100%; height: 600px;"
-    data-controller="map"
-    data-map-markers-value="<%= @markers.to_json %>"
-    data-map-marker-value="<%= @marker.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
+<div class="container">
+  <h1>loo.send</h1>
+</div>
+
+<div style="width: 100%; height: 600px;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-marker-value="<%= @marker.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>
 
 <div class="container">
-  <h2><strong><%= "#{@toilet.name}" %></strong></h2>
-  <h3><%= "#{@toilet.address} | #{@toilet.rating} stars" %></h3>
+  <h3><strong><%= "#{@toilet.name}" %></strong></h3>
+  <h5><%= "#{@toilet.address} | #{@toilet.rating} ⭐️" %></h5>
+    <div class="row row-cols-1 row-cols-md-4 g-4 d-flex justify-content-center mt-3">
+    <% @toilet.features.each do |feature| %>
+      <% case feature.name %>
+        <% when 'Men' %>
+          <div class="col-lg-4 col-md-4 col-sm-4 col-4">
+            <div class="d-flex flex-column">
+              <div class="p-2">
+                <%= image_tag "male.png", class:"feature"%>
+              </div>
+              <div class="p-2">
+                <%= feature.name %>
+              </div>
+            </div>
+          </div>
+        <% when 'Women' %>
+          <div class="col-lg-4 col-md-4 col-sm-4 col-4">
+            <div class="d-flex flex-column">
+              <div class="p-2">
+                <%= image_tag "female.png", class:"feature"%>
+              </div>
+              <div class="p-2">
+                <%= feature.name %>
+              </div>
+            </div>
+          </div>
+        <% when 'Gender Neutral' %>
+          <div class="col-lg-4 col-md-4 col-sm-4 col-4">
+            <div class="d-flex flex-column">
+              <div class="p-2">
+                <%= image_tag "genderless-solid.svg", class:"feature"%>
+              </div>
+              <div class="p-2">
+                <%= feature.name %>
+              </div>
+            </div>
+          </div>
+        <% when 'Privacy' %>
+          <div class="col-lg-4 col-md-4 col-sm-4 col-4">
+            <div class="d-flex flex-column">
+              <div class="p-2">
+                <%= image_tag "privacy.png", class:"feature"%>
+              </div>
+              <div class="p-2">
+                <%= feature.name %>
+              </div>
+            </div>
+          </div>
+        <% when 'Automatic' %>
+          <div class="col-lg-4 col-md-4 col-sm-4 col-4">
+            <div class="d-flex flex-column">
+              <div class="p-2">
+                <%= image_tag "hand-dryer.png", class:"feature"%>
+              </div>
+              <div class="p-2">
+                <%= feature.name %>
+              </div>
+            </div>
+          </div>
+        <% when 'Baby Changing' %>
+          <div class="col-lg-4 col-md-4 col-sm-4 col-4">
+            <div class="d-flex flex-column">
+              <div class="p-2">
+                <%= image_tag "baby-solid.svg", class:"feature"%>
+              </div>
+              <div class="p-2">
+                <%= feature.name %>
+              </div>
+            </div>
+          </div>
+        <% when 'Accessible' %>
+          <div class="col-lg-4 col-md-4 col-sm-4 col-4">
+            <div class="d-flex flex-column">
+              <div class="p-2">
+                <%= image_tag "wheelchair-solid.svg", class:"feature"%>
+              </div>
+              <div class="p-2">
+                <%= feature.name %>
+              </div>
+            </div>
+          </div>
+        <% when 'Mirror' %>
+          <div class="col-lg-4 col-md-4 col-sm-4 col-4">
+            <div class="d-flex flex-column">
+              <div class="p-2">
+                <%= image_tag "mirror.png", class:"feature"%>
+              </div>
+              <div class="p-2">
+                <%= feature.name %>
+              </div>
+            </div>
+          </div>
+      <% end %>
+    <% end %>
+    </div>
+
   <h5><%= "Leave a review for #{@toilet.name}" %></h5>
   <%= simple_form_for [@toilet, @review] do |f| %>
     <%= f.input :toilet_rating %>
