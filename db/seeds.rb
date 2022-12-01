@@ -74,6 +74,8 @@ end
 puts "Finished features!"
 puts "\n"
 
+# Toilet.near([51.50, 0.12],200)
+
 puts "Creating toilets..."
 addresses = LONDON.dup
 100.times do
@@ -91,7 +93,7 @@ addresses = LONDON.dup
   addresses.delete(toilet.address)
 
   Feature.all.sample(rand(3..5)).each do |feature|
-    ToiletFeature.create(toilet_id: toilet.id, feature_id: feature.id + 1)
+    ToiletFeature.create(toilet_id: toilet.id, feature_id: feature.id)
     puts "\tAdded #{feature.name} feature to #{toilet.name}"
   end
 end

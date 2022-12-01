@@ -1,15 +1,23 @@
-
-<div class="container">
-  <h1>See all toilets near you!</h1>
-      <% Feature.all.each do |feature| %>
-
-
-          <%= link_to feature.name, toilets_path(feature) %>
-
-
-<% end %>
-
 <h1 class="fake-navbar">loo.send</h1>
+<div class="container d-flex justify-content-between">
+  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      Filter
+    </button>
+    <ul class="dropdown-menu">
+      <% Feature.all.each do |feature| %>
+        <a class="dropdown-item" href="#"><%= link_to feature.name, toilets_path(feature.name)%></a>
+      <% end %>
+        <a class="dropdown-item" href="#"><%= link_to "All toilets", toilets_path%></a>
+    </ul>
+  </div>
+  <% if @name %>
+    <%= "You are searching for toilets with the feature: #{@name}" %>
+  <% else @name %>
+    You have yet to select a feature
+  <% end %>
+</div>
+
 <div class="container-map">
   <div style="width: 100%; height: 500px; margin: 0"
   data-controller="map"
