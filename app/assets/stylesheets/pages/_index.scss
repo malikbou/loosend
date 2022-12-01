@@ -1,2 +1,145 @@
 // Import page-specific CSS files here.
 @import "home";
+
+.container-map {
+  padding: 0;
+  background-color: #97D8C4;
+}
+
+.fake-navbar {
+  background-color: #A8C4F0;
+  padding-bottom: 10px;
+  margin: 0;
+  font-family: 'Titan One', cursive;
+  color: #FDFAFA;
+  font-size: 30px;
+  padding-top: 10px;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  -webkit-text-stroke: 1px #225948;
+  padding-left: 10px;
+}
+
+.dotted {
+  margin-left: 135px;
+  border-top: 5px dotted rgb(255, 255, 255);
+  border-color: white;
+  margin-bottom: 0;
+  width: 30%;
+  opacity: 0.7;
+}
+
+.x-loos {
+  margin-bottom: 0;
+  font-size: 25px;
+  font-weight: bolder;
+  color: #225948;
+  // text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-family: 'Open Sans', sans-serif;
+  text-decoration: underline white;
+  text-align: center;
+  font-style: italic;
+}
+.container-cards {
+  background-color: #97D8C4;
+  padding-top: 5px; // space between map and 'loos near you'
+  padding-left: 12px;
+  padding-right: 12px;
+  text-decoration: none;
+}
+
+.card:active {
+  opacity: 0.5;
+}
+
+.card {
+  // align-items: center;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  // top: 60px;
+  // right: 0px;
+  // left:0px;
+  display: flex;
+  flex-direction: row;
+  height: 6em;
+  // justify-content: space-between;
+  border-radius: 20px;
+  border: 2px solid #225948;
+  margin-top: 20px;
+  text-decoration: none;
+}
+
+.card p {
+  text-decoration: none;
+
+}
+
+
+.card-1 {
+  margin: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: start;
+  font-size: 8px;
+  border-radius: 20px;
+  padding: 10px;
+  padding-left: 30px;
+  // font-size: 15px;
+  text-decoration: none;
+  a {
+    font-size: 8px;
+    text-decoration: none;
+  }
+  h2 {
+    margin: 0;
+    text-decoration: none;
+  }
+  p {
+    // font-size: 15px;
+    margin: 0;
+    text-decoration: none;
+  }
+}
+
+.card-2 {
+  margin: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: end;
+  font-size: 8px;
+  border-radius: 20px;
+  padding: 10px;
+  font-size: 15px;
+  text-decoration: none;
+  padding-right: 30px;
+  a {
+    font-size: 8px;
+    text-decoration: none;
+  }
+  h2 {
+    margin: 0;
+    text-decoration: none;
+  }
+  p {
+    margin: 0;
+    text-decoration: none;
+  }
+}
+
+.toilet-name {
+  font-weight: 800;
+  font-size: large;
+  color: #225948;
+  opacity: 0.8;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.right-side-description {
+  color: grey;
+}
+
+// create the border of the card
+// put some padding on the class "card" to not make the text stick on the borders
+// remove the uderline blue thing on the text "hint" decortion?
