@@ -3,7 +3,7 @@ class ToiletFeature < ApplicationRecord
   belongs_to :feature
 
   has_many :features
-  has_many :toilets, dependent: :destroy
+  has_many :toilets
 
   validates :toilet_id, uniqueness: { scope: :feature_id }
 end
