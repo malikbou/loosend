@@ -7,17 +7,16 @@ export default class extends Controller {
   }
 
   connect() {
+    console.log("test")
     mapboxgl.accessToken = this.apiKeyValue
 
     this.map = new mapboxgl.Map({
       container: this.element,
-      style: "mapbox://styles/mapbox/streets-v10"
+      style: "mapbox://styles/mapbox/streets-v12"
     })
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
-
     // Add geolocate control to the map.
-
     this.map.addControl(
       new mapboxgl.GeolocateControl({
           positionOptions: {
@@ -31,6 +30,7 @@ export default class extends Controller {
     );
   }
 
+  // for toilet index page
   #addMarkersToMap() {
     this.markersValue.forEach((marker) => {
       const popup = new mapboxgl.Popup().setHTML(marker.info_window)
@@ -40,8 +40,8 @@ export default class extends Controller {
       customMarker.className = "marker"
       customMarker.style.backgroundImage = `url('${marker.image_url}')`
       customMarker.style.backgroundSize = "contain"
-      customMarker.style.width = "50px"
-      customMarker.style.height = "50px"
+      customMarker.style.width = "15px"
+      customMarker.style.height = "15px"
 
       // Pass the element as an argument to the new marker
       new mapboxgl.Marker(customMarker)
