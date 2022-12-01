@@ -12,11 +12,11 @@ puts "Destroyed toilet features"
 Review.destroy_all
 puts "Destroyed reviews"
 
-Toilet.destroy_all
-puts "Destroyed toilets"
-
 Feature.destroy_all
 puts "Destroyed features"
+
+Toilet.destroy_all
+puts "Destroyed toilets"
 
 User.destroy_all
 puts "Destroyed users"
