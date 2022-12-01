@@ -1,23 +1,31 @@
-<div class="container">
-  <h1>See all toilets near you!</h1>
-  <div style="width: 100%; height: 500px;"
+  <h1 class="fake-navbar">loo.send</h1>
+<div class="container-map">
+  <div style="width: 100%; height: 500px; margin: 0"
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
 
-<div class="row mt-2">
-  <% @toilets.each do |toilet| %>
-  <div class="col-sm-6 mb-2">
-    <div class="card">
-      <div class="card-body">
-        <h2><%= link_to "#{toilet.name}", toilet_path(toilet) %></h2>
-        <p><%= "Address: #{toilet.address}" %></p>
-        <p><%= "Opens at: #{toilet.opens_at.strftime('%H:%M')}
-        Closes at: #{toilet.closes_at.strftime('%H:%M')}" %></p>
-        <p><%= "Rating: #{toilet.rating} ⭐️" %></p>
-      </div>
+<div class="container-cards">
+  <div class="row mt-2">
+  <h2 class="x-loos">loos near you</h2>
+    <% @toilets.each do |toilet| %>
+
+    <div class="col-sm-12 mb-3" style="padding-left: 3px; padding-right: 3px">
+      <%= link_to toilet_path(toilet), class: "card" do%>
+        <div class="card-1">
+          <p class="toilet-name"><%= toilet.name %><p>
+          <%# <small><%= "Address: #{toilet.address}"</small> %>
+        </div>
+        <div class="card-2">
+          <p class="right-side-description"><%= "Rating: #{toilet.rating} ⭐️" %></p>
+          <p class="right-side-description"><%=  "🕑 #{toilet.opens_at.strftime('%H:%M')}
+          - #{toilet.closes_at.strftime('%H:%M')}" %>
+          </p>
+        </div>
+      <% end %>
     </div>
+        <hr class="dotted">
+    <% end %>
   </div>
-  <% end %>
 </div>
