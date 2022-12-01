@@ -2,9 +2,10 @@ class ToiletsController < ApplicationController
   before_action :set_toilet, only: [:show]
 
   def index
-    if params[:id].present?
-      good_feature = Feature.find(params[:id])
-      @toilets = good_feature[0].toilets
+    if params[:format].present?
+      feature = Feature.where("name = '#{params[:format]}'")
+      @name = feature[0].name
+      @toilets = feature[0].toilets
     else
       @toilets = Toilet.all
     end
