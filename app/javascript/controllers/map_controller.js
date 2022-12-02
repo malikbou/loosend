@@ -24,11 +24,6 @@ export default class extends Controller {
       });
       // Add the control to the map.
       this.map.addControl(geolocate);
-
-      this.map.on('load', () => {
-        geolocate.trigger();
-        });
-
   }
 
   // for toilet index page
