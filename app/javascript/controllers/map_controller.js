@@ -24,6 +24,15 @@ export default class extends Controller {
       });
       // Add the control to the map.
       this.map.addControl(geolocate);
+
+      // Auto trigger logic
+      const mapDiv = document.querySelector("div")
+        if (mapDiv.id !== "show") {
+          this.map.on('load', () => {
+            geolocate.trigger();
+          });
+        }
+
   }
 
   // for toilet index page
