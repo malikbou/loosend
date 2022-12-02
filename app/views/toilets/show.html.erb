@@ -5,9 +5,13 @@
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
 
-<div class="container show-container">
-  <div class="div-show">
-    <h2 class="toilet-title-show"><%= "#{@toilet.name}" %></h2>
+
+<div class="container">
+  <div class="d-flex justify-content-between">
+    <h3><strong><%= "#{@toilet.name}" %></strong></h3>
+    <a class="btn btn-warning" href="<%="https://www.google.com/maps/search/?api=1&query=#{@toilet.address.to_s}"%>" target="_blank" role="button">
+      Directions
+    </a>
   </div>
   <h5><%= "#{@toilet.address} | #{@toilet.rating} ⭐️" %></h5>
     <div class="row row-cols-1 row-cols-md-4 g-4 d-flex justify-content-center mt-3">
