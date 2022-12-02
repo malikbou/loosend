@@ -10,7 +10,7 @@ export default class extends Controller {
     mapboxgl.accessToken = this.apiKeyValue
     this.map = new mapboxgl.Map({
       container: this.element,
-      style: "mapbox://styles/mapbox/streets-v12"
+      style: "mapbox://styles/mapbox/streets-v11"
     })
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
@@ -41,8 +41,8 @@ export default class extends Controller {
       customMarker.className = "marker"
       customMarker.style.backgroundImage = `url('${marker.image_url}')`
       customMarker.style.backgroundSize = "contain"
-      customMarker.style.width = "15px"
-      customMarker.style.height = "15px"
+      customMarker.style.width = "25px"
+      customMarker.style.height = "25px"
 
       // Pass the element as an argument to the new marker
       new mapboxgl.Marker(customMarker)
