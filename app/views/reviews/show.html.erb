@@ -1,8 +1,14 @@
-<div class=“container”>
-  <h3><strong><%= "#{@review.user.first_name.capitalize}, you left a review for #{@review.toilet.name}" %></strong></h3>
-  <ul>
-    <li><%= "Overall Rating: #{@review.toilet_rating}" %></li>
-    <li><%= "Content: #{@review.comment}" %></li>
+<%= render "shared/navbar" %>
+<div class="container pt-2">
+  <h3><strong><%= "Thank you for your feedback, #{@review.user.first_name.capitalize}!" %></strong></h3>
+  <ul class="list-group">
+      <li class="list-group-item mt-1">
+        <h5><%= "🕑 #{@review.user.first_name} on #{@review.created_at.strftime('%d %B %Y at %H:%M')}PM"%></h5>
+        <h5>
+          <%= "Rating: #{@review.toilet_rating} ⭐️" %>
+        </h5>
+        <p><%= "#{@review.comment}" %></p>
+      </li>
   </ul>
   <%= link_to "Go back", toilet_path(@review.toilet) %>
 </div>
