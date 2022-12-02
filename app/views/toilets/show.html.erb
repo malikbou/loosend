@@ -8,8 +8,8 @@
 
 <div class="container">
   <div class="d-flex justify-content-between">
-    <h3><strong><%= "#{@toilet.name}" %></strong></h3>
-    <a class="btn btn-warning" href="<%="https://www.google.com/maps/search/?api=1&query=#{@toilet.address.to_s}"%>" target="_blank" role="button">
+    <h3 class="toilet-title-show"><%= "#{@toilet.name}" %></h3>
+    <a class="btn btn-warning directions-button" href="<%="https://www.google.com/maps/search/?api=1&query=#{@toilet.address.to_s}"%>" target="_blank" role="button">
       Directions
     </a>
   </div>
