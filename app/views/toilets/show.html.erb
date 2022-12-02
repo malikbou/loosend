@@ -6,10 +6,6 @@
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
 
-
-  <%= link_to "Sign out", destroy_user_session_path, data: {turbo_method: :delete} %>
-
-
 <div class="container">
   <div class="d-flex justify-content-between">
     <h3><strong><%= "#{@toilet.name}" %></strong></h3>
