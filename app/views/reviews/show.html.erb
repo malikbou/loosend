@@ -4,5 +4,5 @@
     <li><%= "Overall Rating: #{@review.toilet_rating}" %></li>
     <li><%= "Content: #{@review.comment}" %></li>
   </ul>
-  <%= link_to "See all Toilets", toilets_path %>
+  <%= link_to "Go back", toilet_path(@review.toilet) %>
 </div>
