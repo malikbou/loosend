@@ -8,7 +8,7 @@
 
 <div class="container">
   <h3><strong><%= "#{@toilet.name}" %></strong></h3>
-  <h5><%= "#{@toilet.address} | #{@toilet.rating} ⭐️" %></h5>
+  <h5><%= "#{@toilet.address} | #{@avgrating} ⭐️" %></h5>
     <div class="row row-cols-1 row-cols-md-4 g-4 d-flex justify-content-center mt-3">
     <% @toilet.features.each do |feature| %>
       <% case feature.name %>
@@ -106,11 +106,12 @@
 
   <h5><%= "Leave a review for #{@toilet.name}" %></h5>
   <%= simple_form_for [@toilet, @review] do |f| %>
-    <%= f.input :toilet_rating %>
-    <%= f.input :comment %>
-    <%= f.submit "Leave review", class: "btn btn-primary" %>
+    <%= f.input :toilet_rating, collection: (1..5).to_a, label: "Rate your experience", input_html: {data: {controller: "star-rating"}} %>
+    <%= f.input :comment, label: "Leave a comment (optional)"  %>
+    <%= f.submit "Submit your review", class: "btn btn-primary" %>
   <% end %>
-  <%= link_to "Back to Toilets", toilets_path %>
+  <br>
+  <%= link_to "- Back to All Toilets -", toilets_path %>
 
   <h5 class="mt-3"><%= "Reviews for #{@toilet.name} left by other users" %></h5>
   <ul class="list-group">
@@ -118,9 +119,9 @@
       <li class="list-group-item mt-3">
         <%= "Review left by: #{review.user.first_name} at #{review.created_at}" %>
         <p>
-          <%= "Overall Rating: #{review.toilet_rating}" %>
+          <%= "Overall Rating: #{review.toilet_rating} ⭐️" %>
         </p>
-        <p><%= "Comment: #{review.comment}" %></p>
+        <p><%= "#{review.comment}" %>  </p>
       </li>
     <% end %>
   </ul>

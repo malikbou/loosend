@@ -8,7 +8,8 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to review_path(@review)
     else
-      render template: "new", status: :unprocessable_entity
+      flash[:alert] = "Something went wrong."
+      render template: "new" # , status: :unprocessable_entity
     end
   end
 
