@@ -1,4 +1,21 @@
 <%= render "shared/navbar" %>
+
+<ul>
+  <% Feature.all.each do |feature| %>
+      <li>
+        <%= check_box_tag 'feature_ids[]', feature.id -%>
+        <%= h feature.name -%>
+      </li>
+  <% end %>
+</ul>
+<p>
+<%= link_to "feature_ids[]", toilets_path(["Mirror", "Accessible", "Men"])%>
+</p>
+
+<%= link_to "Filtering for Mirror and Accessible", toilets_path(["Mirror", "Accessible", "Men"])%>
+<%= "Feature Name: #{@name}" %>
+<%= "There are #{@toilets.length} toilets near you" %>
+
 <div class="container d-flex justify-content-between">
   <div class="dropdown">
     <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
