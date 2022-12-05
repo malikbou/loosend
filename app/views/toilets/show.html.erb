@@ -15,7 +15,8 @@
     <a class="btn directions-button" href="<%="https://www.google.com/maps/dir/?api=1&destination=#{@toilet.address}"%>" target="_blank" role="button">
     </a>
   </div>
-  <h6 class="toilet-address"><%= "#{@toilet.address} | #{@toilet.rating} ⭐️" %></h6>
+  <h3><strong><%= "#{@toilet.name}" %></strong></h3>
+  <h5><%= "#{@toilet.address} | #{@avgrating} ⭐️" %></h5>
     <div class="icons-card row row-cols-1 row-cols-md-4 g-4 d-flex justify-content-center mt-3">
     <% @toilet.features.each do |feature| %>
       <% case feature.name %>
@@ -113,11 +114,13 @@
 
   <h5><%= "Leave a review for #{@toilet.name}" %></h5>
   <%= simple_form_for [@toilet, @review] do |f| %>
-    <%= f.input :toilet_rating %>
-    <%= f.input :comment %>
-    <%= f.submit "Leave review", class: "btn btn-primary leave-review" %>
+
+    <%= f.input :toilet_rating, collection: (1..5).to_a, label: "Rate your experience", input_html: {data: {controller: "star-rating"}} %>
+    <%= f.input :comment, label: "Leave a comment (optional)"  %>
+    <%= f.submit "Submit your review", class: "btn btn-primary" %>
   <% end %>
-  <%= link_to "Back to Toilets", toilets_path, class: "btn-back" %>
+  <br>
+  <%= link_to "- Back to All Toilets -", toilets_path %>
 
   <h5 class="mt-3"><%= "Reviews for #{@toilet.name} left by other users" %></h5>
   <ul class="list-group">
@@ -125,9 +128,11 @@
       <li class="reviews-cards list-group-item mt-3">
        <strong><%="#{review.user.first_name} on #{review.created_at.strftime("%A, %b %d, %Y")}" %></strong>
         <p>
-          <%= "Rating: #{review.toilet_rating}" %>
+
+          <%= "Overall Rating: #{review.toilet_rating} ⭐️" %>
         </p>
-        <p class="comment"><%= "#{review.comment}" %></p>
+        <p><%= "#{review.comment}" %>  </p>
+
       </li>
     <% end %>
   </ul>

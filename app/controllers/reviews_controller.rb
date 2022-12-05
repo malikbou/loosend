@@ -21,6 +21,8 @@ class ReviewsController < ApplicationController
         render "toilets/show", status: :unprocessable_entity
       end
     else
+      flash[:alert] = "Something went wrong."
+      render template: "new" # , status: :unprocessable_entity
       redirect_to new_user_session_path
     end
   end

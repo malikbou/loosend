@@ -32,6 +32,14 @@ class ToiletsController < ApplicationController
         image_url: helpers.asset_url("toilet-paper.png")
       }
     ]
+
+    @marker = {
+      lat: @toilet.latitude,
+      lng: @toilet.longitude,
+      info_window: render_to_string(partial: "info_window", locals: {toilet: @toilet}),
+      image_url: helpers.asset_url("pin.png")
+    }
+    @avgrating = @toilet.reviews.pluck(:toilet_rating).sum/@toilet.reviews.pluck(:toilet_rating).count.to_f
   end
 
   private
