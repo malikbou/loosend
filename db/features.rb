@@ -1,12 +1,11 @@
 module FeatureList
   FEATURE_LIST = [
-    'Women',
-    'Men',
     'Accessible',
     'Gender Neutral',
     'Baby Changing',
     'Mirror',
-    'Automatic',
-    'Privacy'
+    'Hand Dryer',
+    'Enclosed Stall',
+    'Private Sink'
   ]
 end
