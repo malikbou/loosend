@@ -4,14 +4,16 @@ class ToiletsController < ApplicationController
 
   def index
     @lewagon_coordinates = [51.53, -0.07]
-    raise
-    if params[:format].present?
+    if params[:feature_ids].present?
+      @features = Feature.where(id: params[:feature_ids])
+      @toilets = Toilet.with_features(@features)
 
-      @name = params[:format].split('/')
-      features = Feature.where(name: @name)
-      @toilets = Toilet.includes(:features).where('features.name' => @name[0])
-      @toilets = @toilets.where('features.name' => @name[1])
-      @toilets = Toilet.includes(:features).where('features.name' => @name)
+
+      # @name = params[:format].split('/')
+      # features = Feature.where(name: @name)
+      # @toilets = Toilet.includes(:features).where('features.name' => @name[0])
+      # @toilets = @toilets.where('features.name' => @name[1])
+      # @toilets = Toilet.includes(:features).where('features.name' => @name)
 
     # if params[:format].present?
     #   feature = Feature.where("name = '#{params[:format]}'")

@@ -1,14 +1,5 @@
 <%= render "shared/navbar" %>
 
-<ul>
-  <% Feature.all.each do |feature| %>
-      <li>
-        <%= check_box_tag 'feature_ids[]', feature.id -%>
-        <%= h feature.name -%>
-      </li>
-  <% end %>
-</ul>
-
 <%= form_with url: "/toilets", method: :get do |form| %>
   <% Feature.all.each do |feature| %>
       <li>
@@ -16,16 +7,19 @@
         <%= h feature.name -%>
       </li>
   <% end %>
-  <%= form.submit "Filter" %>
+  <%= form.submit "Apply Filters" %>
 <% end %>
 
-<p>
-<%= link_to "feature_ids[]", toilets_path(["Mirror", "Accessible", "Men"])%>
-</p>
 
-<%= link_to "Filtering for Mirror and Accessible", toilets_path(["Mirror", "Accessible", "Men"])%>
-<%= "Feature Name: #{@name}" %>
-<%= "There are #{@toilets.length} toilets near you" %>
+You Selected:
+<% if @features %>
+  <% @features.each do |feature| %>
+    <%= "#{feature.name}" %>
+  <% end %>
+<% else %>
+  Please apply a filter
+<% end %>
+
 
 <div class="container d-flex justify-content-between">
   <div class="dropdown">
