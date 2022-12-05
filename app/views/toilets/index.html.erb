@@ -1,35 +1,50 @@
 <%= render "shared/navbar" %>
+
 <div class="container d-flex justify-content-between">
   <div class="dropdown">
     <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-      Filter
+      Filters
     </button>
     <ul class="dropdown-menu">
-      <% Feature.all.each do |feature| %>
-        <a class="dropdown-item" href="#"><%= link_to feature.name, toilets_path(feature.name)%></a>
-      <% end %>
-        <a class="dropdown-item" href="#"><%= link_to "All toilets", toilets_path%></a>
+          <%= form_with url: "/toilets", method: :get do |form| %>
+            <% Feature.all.each do |feature| %>
+                <li>
+                  <%= check_box_tag 'feature_ids[]', feature.id -%>
+                  <%= h feature.name -%>
+                </li>
+            <% end %>
+            <%= form.submit "Apply Filters", class: "btn btn-primary" %>
+          <% end %>
+        <a class="dropdown-item" href="#"><%= link_to "See all toilets", toilets_path%></a>
     </ul>
   </div>
-  <% if @name %>
-    <%= "You are searching for toilets with the feature: #{@name}" %>
-  <% else @name %>
-    You have yet to select a feature
+  <% if @features %>
+    Filters selected:
+    <%= @features.map(&:name).join(", ")%>
+  <% else %>
+    No filters applied
   <% end %>
 </div>
 
-<div class="container-map">
-  <div style="width: 100%; height: 400px; margin: 0"
-  data-controller="map"
-  id="index"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-</div>
+<% if @markers.empty? %>
+  <div class="container">
+    Sorry, we could not find a toilet that matched your search.
+    Please try again.
+  </div>
+<% else %>
+  <div class="container-map">
+    <div style="width: 100%; height: 400px; margin: 0"
+    data-controller="map"
+    id="index"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+<% end %>
 
 <div class="container-cards">
   <div class="row mt-2">
   <h2 class="x-loos">loos near you</h2>
-    <% @toilets.each do |toilet| %>
+    <% @toilets.first(8).each do |toilet| %>
 
     <div class="col-sm-12 mb-3" style="padding-left: 3px; padding-right: 3px">
       <%= link_to toilet_path(toilet), class: "card" do%>

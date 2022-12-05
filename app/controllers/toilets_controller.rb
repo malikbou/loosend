@@ -4,10 +4,9 @@ class ToiletsController < ApplicationController
 
   def index
     @lewagon_coordinates = [51.53, -0.07]
-    if params[:format].present?
-      feature = Feature.where("name = '#{params[:format]}'")
-      @name = feature[0].name
-      @toilets = feature[0].toilets.near(@lewagon_coordinates, 20, :order => :distance)
+    if params[:feature_ids].present?
+      @features = Feature.where(id: params[:feature_ids])
+      @toilets = Toilet.with_features(@features).near(@lewagon_coordinates, 20, :order => :distance)
     else
       @toilets = Toilet.near(@lewagon_coordinates, 20, :order => :distance)
     end

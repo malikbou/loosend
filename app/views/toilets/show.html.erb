@@ -8,7 +8,7 @@
 </div>
 
 
-<div class="container">
+<div class="container-bcg">
   <div class="d-flex justify-content-between">
     <h3 class="toilet-title-show"><%= "#{@toilet.name}" %></h3>
     <h4 class="direc">Directions</h4>
@@ -17,17 +17,16 @@
   </div>
   <h3><strong><%= "#{@toilet.name}" %></strong></h3>
   <h5><%= "#{@toilet.address} | #{@avgrating} ⭐️" %></h5>
-
-    <div class="row row-cols-1 row-cols-md-4 g-4 d-flex justify-content-center mt-3">
+    <div class="icons-card row row-cols-1 row-cols-md-4 g-4 d-flex justify-content-center mt-3">
     <% @toilet.features.each do |feature| %>
       <% case feature.name %>
         <% when 'Men' %>
           <div class="col-lg-4 col-md-4 col-sm-4 col-4">
             <div class="d-flex flex-column">
-              <div class="p-2">
+              <div class="icon-div p-2">
                 <%= image_tag "male.png", class:"feature"%>
               </div>
-              <div class="p-2">
+              <div class="feature-name p-2">
                 <%= feature.name %>
               </div>
             </div>
@@ -35,10 +34,10 @@
         <% when 'Women' %>
           <div class="col-lg-4 col-md-4 col-sm-4 col-4">
             <div class="d-flex flex-column">
-              <div class="p-2">
+              <div class="icon-div p-2">
                 <%= image_tag "female.png", class:"feature"%>
               </div>
-              <div class="p-2">
+              <div class="feature-name p-2">
                 <%= feature.name %>
               </div>
             </div>
@@ -46,10 +45,10 @@
         <% when 'Gender Neutral' %>
           <div class="col-lg-4 col-md-4 col-sm-4 col-4">
             <div class="d-flex flex-column">
-              <div class="p-2">
-                <%= image_tag "genderless-solid.svg", class:"feature"%>
+              <div class="icon-div p-2">
+                <%= image_tag "iconsss.png", class:"feature"%>
               </div>
-              <div class="p-2">
+              <div class="feature-name p-2">
                 <%= feature.name %>
               </div>
             </div>
@@ -57,10 +56,10 @@
         <% when 'Privacy' %>
           <div class="col-lg-4 col-md-4 col-sm-4 col-4">
             <div class="d-flex flex-column">
-              <div class="p-2">
-                <%= image_tag "privacy.png", class:"feature"%>
+              <div class="icon-div p-2">
+                <%= image_tag "door.png", class:"feature"%>
               </div>
-              <div class="p-2">
+              <div class="feature-name p-2">
                 <%= feature.name %>
               </div>
             </div>
@@ -68,10 +67,10 @@
         <% when 'Automatic' %>
           <div class="col-lg-4 col-md-4 col-sm-4 col-4">
             <div class="d-flex flex-column">
-              <div class="p-2">
+              <div class="icon-div p-2">
                 <%= image_tag "hand-dryer.png", class:"feature"%>
               </div>
-              <div class="p-2">
+              <div class="feature-name p-2">
                 <%= feature.name %>
               </div>
             </div>
@@ -79,10 +78,10 @@
         <% when 'Baby Changing' %>
           <div class="col-lg-4 col-md-4 col-sm-4 col-4">
             <div class="d-flex flex-column">
-              <div class="p-2">
-                <%= image_tag "baby-solid.svg", class:"feature"%>
+              <div class="icon-div p-2">
+                <%= image_tag "baby-boy.png", class:"feature"%>
               </div>
-              <div class="p-2">
+              <div class="feature-name p-2">
                 <%= feature.name %>
               </div>
             </div>
@@ -90,10 +89,10 @@
         <% when 'Accessible' %>
           <div class="col-lg-4 col-md-4 col-sm-4 col-4">
             <div class="d-flex flex-column">
-              <div class="p-2">
-                <%= image_tag "wheelchair-solid.svg", class:"feature"%>
+              <div class="icon-div p-2">
+                <%= image_tag "disability.png", class:"feature"%>
               </div>
-              <div class="p-2">
+              <div class="feature-name p-2">
                 <%= feature.name %>
               </div>
             </div>
@@ -101,10 +100,10 @@
         <% when 'Mirror' %>
           <div class="col-lg-4 col-md-4 col-sm-4 col-4">
             <div class="d-flex flex-column">
-              <div class="p-2">
+              <div class="icon-div p-2">
                 <%= image_tag "mirror.png", class:"feature"%>
               </div>
-              <div class="p-2">
+              <div class="feature-name p-2">
                 <%= feature.name %>
               </div>
             </div>
@@ -126,12 +125,14 @@
   <h5 class="mt-3"><%= "Reviews for #{@toilet.name} left by other users" %></h5>
   <ul class="list-group">
     <% @toilet.reviews.each do |review| %>
-      <li class="list-group-item mt-3">
-        <%= "Review left by: #{review.user.first_name} at #{review.created_at}" %>
+      <li class="reviews-cards list-group-item mt-3">
+       <strong><%="#{review.user.first_name} on #{review.created_at.strftime("%A, %b %d, %Y")}" %></strong>
         <p>
+
           <%= "Overall Rating: #{review.toilet_rating} ⭐️" %>
         </p>
         <p><%= "#{review.comment}" %>  </p>
+
       </li>
     <% end %>
   </ul>
