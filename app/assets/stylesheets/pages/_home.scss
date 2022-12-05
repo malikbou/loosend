@@ -30,6 +30,9 @@ html {
 .btn-gradient {
   color: white;
   padding: 8px 24px;
+  position: absolute;
+  left: 120px;
+  top: 650px;
   font-family: 'Open Sans', sans-serif;
   font-weight:700;
   font-style: italic;
@@ -41,7 +44,7 @@ html {
 }
 
 .center {
-  margin-top: 450px;
+  //margin-top: 450px;
   text-align: center;
 }
 

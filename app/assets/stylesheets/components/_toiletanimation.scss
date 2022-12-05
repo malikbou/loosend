@@ -12,7 +12,7 @@
   border-radius:6px;
   position: absolute;
   left: calc((110% - 350px) / 2);
-  top: calc((120% - 210px) / 2);
+  top: calc((140% - 210px) / 2);
   transform-origin: 192.5px 7.5px;
   animation-name: lid-opening;
   animation-duration: 6s;
@@ -25,7 +25,7 @@
   border-radius: 6px 6px 100px 100px;
   position: absolute;
   left: calc((110% - 350px) / 2);
-  top: calc((120% - 165px) / 2);
+  top: calc((140% - 165px) / 2);
   box-shadow: 0 0 0 9px #97D8C4;
 }
 #toilet-leg {
@@ -34,7 +34,7 @@
   border-radius: 6px;
   position: absolute;
   left: calc((110% - 200px) / 2);
-  top: calc((120% - 165px) / 2);
+  top: calc((140% - 165px) / 2);
 }
 #toilet-tank {
   height: 200px;
@@ -42,7 +42,7 @@
   border-radius: 6px;
   position: absolute;
   left: calc((110% + 68px) / 2);
-  top: calc((120% - 400px) / 2);
+  top: calc((140% - 400px) / 2);
 }
 #toilet-tank-lid {
   height: 15px;
@@ -50,7 +50,7 @@
   border-radius: 6px 6px 0 0;
   position: absolute;
   left: calc((110% + 68px) / 2);
-  top: calc((120% - 440px) / 2);
+  top: calc((140% - 440px) / 2);
 }
 #flush-lever {
   height: 15px;
@@ -59,7 +59,7 @@
   border-radius: 6px;
   position: absolute;
   left: calc((110% + 120px) / 2);
-  top: calc((120% - 360px) / 2);
+  top: calc((140% - 360px) / 2);
   transform-origin: 8px 8px;
   animation-name: lever-rotation;
   animation-duration: 6s;
@@ -96,13 +96,13 @@
   border-radius: 6px 6px 100px 100px;
   position: absolute;
   left: calc((110% - 350px) / 2);
-  top: calc((120% - 165px) / 2);
+  top: calc((140% - 165px) / 2);
 }
 
 .waterimg {
   position: absolute;
   left: calc((110% - 256px) / 2 - 1px);
-  top: calc((120% - 228px) / 2 + 55px);
+  top: calc((140% - 228px) / 2 + 55px);
   background-color: transparent;
   height: 112px;
   width: 91px;
@@ -273,7 +273,7 @@
   height: 90px;
   position: absolute;
   left: calc((110% - 256px) / 2 - 1px);
-  top: calc((120% - 250px) / 2 + 55px); /* POSITION OF MARKER (CHANGE FIRST PIXEL STAT) */
+  top: calc((140% - 250px) / 2 + 55px); /* POSITION OF MARKER (CHANGE FIRST PIXEL STAT) */
   animation-name: pin;
   animation-duration: 6s; /* DURATION OF ANIMATION OF THE MARKER */
   animation-iteration-count: infinite;
