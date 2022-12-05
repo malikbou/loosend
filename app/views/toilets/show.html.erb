@@ -7,24 +7,24 @@
 </div>
 
 
-<div class="container">
+<div class="container-bcg">
   <div class="d-flex justify-content-between">
     <h3 class="toilet-title-show"><%= "#{@toilet.name}" %></h3>
     <h4 class="direc">Directions</h4>
     <a class="btn directions-button" href="<%="https://www.google.com/maps/dir/?api=1&destination=#{@toilet.address}"%>" target="_blank" role="button">
     </a>
   </div>
-  <h5><%= "#{@toilet.address} | #{@toilet.rating} ⭐️" %></h5>
+  <h5 class="toilet-address"><%= "#{@toilet.address} | #{@toilet.rating} ⭐️" %></h5>
     <div class="row row-cols-1 row-cols-md-4 g-4 d-flex justify-content-center mt-3">
     <% @toilet.features.each do |feature| %>
       <% case feature.name %>
         <% when 'Men' %>
           <div class="col-lg-4 col-md-4 col-sm-4 col-4">
             <div class="d-flex flex-column">
-              <div class="p-2">
+              <div class="icon-div p-2">
                 <%= image_tag "male.png", class:"feature"%>
               </div>
-              <div class="p-2">
+              <div class="feature-name p-2">
                 <%= feature.name %>
               </div>
             </div>
@@ -32,10 +32,10 @@
         <% when 'Women' %>
           <div class="col-lg-4 col-md-4 col-sm-4 col-4">
             <div class="d-flex flex-column">
-              <div class="p-2">
+              <div class="icon-div p-2">
                 <%= image_tag "female.png", class:"feature"%>
               </div>
-              <div class="p-2">
+              <div class="feature-name p-2">
                 <%= feature.name %>
               </div>
             </div>
@@ -43,10 +43,10 @@
         <% when 'Gender Neutral' %>
           <div class="col-lg-4 col-md-4 col-sm-4 col-4">
             <div class="d-flex flex-column">
-              <div class="p-2">
+              <div class="icon-div p-2">
                 <%= image_tag "genderless-solid.svg", class:"feature"%>
               </div>
-              <div class="p-2">
+              <div class="feature-name p-2">
                 <%= feature.name %>
               </div>
             </div>
@@ -54,10 +54,10 @@
         <% when 'Privacy' %>
           <div class="col-lg-4 col-md-4 col-sm-4 col-4">
             <div class="d-flex flex-column">
-              <div class="p-2">
+              <div class="icon-div p-2">
                 <%= image_tag "privacy.png", class:"feature"%>
               </div>
-              <div class="p-2">
+              <div class="feature-name p-2">
                 <%= feature.name %>
               </div>
             </div>
@@ -65,10 +65,10 @@
         <% when 'Automatic' %>
           <div class="col-lg-4 col-md-4 col-sm-4 col-4">
             <div class="d-flex flex-column">
-              <div class="p-2">
+              <div class="icon-div p-2">
                 <%= image_tag "hand-dryer.png", class:"feature"%>
               </div>
-              <div class="p-2">
+              <div class="feature-name p-2">
                 <%= feature.name %>
               </div>
             </div>
@@ -76,10 +76,10 @@
         <% when 'Baby Changing' %>
           <div class="col-lg-4 col-md-4 col-sm-4 col-4">
             <div class="d-flex flex-column">
-              <div class="p-2">
+              <div class="icon-div p-2">
                 <%= image_tag "baby-solid.svg", class:"feature"%>
               </div>
-              <div class="p-2">
+              <div class="feature-name p-2">
                 <%= feature.name %>
               </div>
             </div>
@@ -87,10 +87,10 @@
         <% when 'Accessible' %>
           <div class="col-lg-4 col-md-4 col-sm-4 col-4">
             <div class="d-flex flex-column">
-              <div class="p-2">
+              <div class="icon-div p-2">
                 <%= image_tag "wheelchair-solid.svg", class:"feature"%>
               </div>
-              <div class="p-2">
+              <div class="feature-name p-2">
                 <%= feature.name %>
               </div>
             </div>
@@ -98,10 +98,10 @@
         <% when 'Mirror' %>
           <div class="col-lg-4 col-md-4 col-sm-4 col-4">
             <div class="d-flex flex-column">
-              <div class="p-2">
+              <div class="icon-div p-2">
                 <%= image_tag "mirror.png", class:"feature"%>
               </div>
-              <div class="p-2">
+              <div class="feature-name p-2">
                 <%= feature.name %>
               </div>
             </div>

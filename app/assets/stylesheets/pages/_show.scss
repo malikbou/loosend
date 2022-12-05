@@ -1,8 +1,11 @@
 .toilet-title-show {
   font-size: 30px;
   font-family: 'Titan One', cursive;
-  padding-top: 30px;
+  padding-top: 20px;
   color: white;
+  padding-left: 10px;
+  -webkit-text-stroke: 1px #225948;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .directions-button {
@@ -52,4 +55,17 @@
   border-radius: 20px;
   text-decoration: none;
   margin-bottom: 20px;
+}
+
+.container-bcg {
+  background-color: #A8C4F0;
+}
+
+.toilet-address {
+  margin-left: 10px;
+}
+
+.icon-div {
+  background-color: #FF731D;
+  border-radius: 25px;
 }
