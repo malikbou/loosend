@@ -3,7 +3,8 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static values = {
     apiKey: String,
-    markers: Array
+    markers: Array,
+    page: String
   }
 
   connect() {
@@ -26,12 +27,14 @@ export default class extends Controller {
       this.map.addControl(geolocate);
 
       // Auto trigger logic
-      const mapDiv = document.querySelector("div")
-        if (mapDiv.id !== "show") {
-          this.map.on('load', () => {
-            geolocate.trigger();
-          });
-        }
+      const currentPage = this.pageValue
+
+      if (currentPage === 'index') {
+        console.log('add load trigger')
+        this.map.on('load', () => {
+          geolocate.trigger();
+        });
+      }
 
   }
 
