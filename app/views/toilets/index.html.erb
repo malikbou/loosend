@@ -8,6 +8,17 @@
       </li>
   <% end %>
 </ul>
+
+<%= form_with url: "/toilets", method: :get do |form| %>
+  <% Feature.all.each do |feature| %>
+      <li>
+        <%= check_box_tag 'feature_ids[]', feature.id -%>
+        <%= h feature.name -%>
+      </li>
+  <% end %>
+  <%= form.submit "Filter" %>
+<% end %>
+
 <p>
 <%= link_to "feature_ids[]", toilets_path(["Mirror", "Accessible", "Men"])%>
 </p>
