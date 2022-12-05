@@ -15,7 +15,7 @@
     </a>
   </div>
   <h5 class="toilet-address"><%= "#{@toilet.address} | #{@toilet.rating} ⭐️" %></h5>
-    <div class="row row-cols-1 row-cols-md-4 g-4 d-flex justify-content-center mt-3">
+    <div class="icons-card row row-cols-1 row-cols-md-4 g-4 d-flex justify-content-center mt-3">
     <% @toilet.features.each do |feature| %>
       <% case feature.name %>
         <% when 'Men' %>
@@ -55,7 +55,7 @@
           <div class="col-lg-4 col-md-4 col-sm-4 col-4">
             <div class="d-flex flex-column">
               <div class="icon-div p-2">
-                <%= image_tag "privacy.png", class:"feature"%>
+                <%= image_tag "door.png", class:"feature"%>
               </div>
               <div class="feature-name p-2">
                 <%= feature.name %>
@@ -77,7 +77,7 @@
           <div class="col-lg-4 col-md-4 col-sm-4 col-4">
             <div class="d-flex flex-column">
               <div class="icon-div p-2">
-                <%= image_tag "baby-solid.svg", class:"feature"%>
+                <%= image_tag "baby-boy.png", class:"feature"%>
               </div>
               <div class="feature-name p-2">
                 <%= feature.name %>
@@ -88,7 +88,7 @@
           <div class="col-lg-4 col-md-4 col-sm-4 col-4">
             <div class="d-flex flex-column">
               <div class="icon-div p-2">
-                <%= image_tag "wheelchair-solid.svg", class:"feature"%>
+                <%= image_tag "disability.svg", class:"feature"%>
               </div>
               <div class="feature-name p-2">
                 <%= feature.name %>

@@ -63,9 +63,24 @@
 
 .toilet-address {
   margin-left: 10px;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .icon-div {
-  background-color: #FF731D;
+  background-color: white;
+  border: 3px solid #FF731D;
   border-radius: 25px;
+  text-align: center;
+  // margin-left: 15px;
+  // margin-right: 15px;
+}
+
+.feature-name {
+  text-align: center;
+}
+
+.icons-card {
+  margin-left: 15px;
+  margin-right: 15px;
+  font-family:'Open Sans', sans-serif;
 }
