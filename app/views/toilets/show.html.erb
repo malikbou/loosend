@@ -14,7 +14,7 @@
     <a class="btn directions-button" href="<%="https://www.google.com/maps/dir/?api=1&destination=#{@toilet.address}"%>" target="_blank" role="button">
     </a>
   </div>
-  <h5 class="toilet-address"><%= "#{@toilet.address} | #{@toilet.rating} ⭐️" %></h5>
+  <h6 class="toilet-address"><%= "#{@toilet.address} | #{@toilet.rating} ⭐️" %></h6>
     <div class="icons-card row row-cols-1 row-cols-md-4 g-4 d-flex justify-content-center mt-3">
     <% @toilet.features.each do |feature| %>
       <% case feature.name %>
@@ -44,7 +44,7 @@
           <div class="col-lg-4 col-md-4 col-sm-4 col-4">
             <div class="d-flex flex-column">
               <div class="icon-div p-2">
-                <%= image_tag "genderless-solid.svg", class:"feature"%>
+                <%= image_tag "iconsss.png", class:"feature"%>
               </div>
               <div class="feature-name p-2">
                 <%= feature.name %>
@@ -88,7 +88,7 @@
           <div class="col-lg-4 col-md-4 col-sm-4 col-4">
             <div class="d-flex flex-column">
               <div class="icon-div p-2">
-                <%= image_tag "disability.svg", class:"feature"%>
+                <%= image_tag "disability.png", class:"feature"%>
               </div>
               <div class="feature-name p-2">
                 <%= feature.name %>
@@ -121,12 +121,12 @@
   <h5 class="mt-3"><%= "Reviews for #{@toilet.name} left by other users" %></h5>
   <ul class="list-group">
     <% @toilet.reviews.each do |review| %>
-      <li class="list-group-item mt-3">
-        <%= "Review left by: #{review.user.first_name} at #{review.created_at}" %>
+      <li class="reviews-cards list-group-item mt-3">
+       <strong><%="#{review.user.first_name} on #{review.created_at.strftime("%A, %b %d, %Y")}" %></strong>
         <p>
-          <%= "Overall Rating: #{review.toilet_rating}" %>
+          <%= "Rating: #{review.toilet_rating}" %>
         </p>
-        <p><%= "Comment: #{review.comment}" %></p>
+        <p class="comment"><%= "#{review.comment}" %></p>
       </li>
     <% end %>
   </ul>
