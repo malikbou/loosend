@@ -3,6 +3,9 @@
 @import "config/colors";
 @import "config/bootstrap_variables";
 
+// Star rating
+@import "star-rating.js/dist/star-rating.css";
+
 // External libraries
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome";
@@ -13,6 +16,4 @@
 @import "pages/home";
 @import "components/toiletanimation";
 @import "components/form";
-
-// Star rating
-@import "star-rating.js/dist/star-rating.css";
+@import "pages/show"

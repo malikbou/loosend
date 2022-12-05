@@ -1,4 +1,5 @@
 class ToiletsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [ :index, :show ]
   before_action :set_toilet, only: [:show]
 
   def index
@@ -32,6 +33,7 @@ class ToiletsController < ApplicationController
         image_url: helpers.asset_url("toilet-paper.png")
       }
     ]
+
     @marker = {
       lat: @toilet.latitude,
       lng: @toilet.longitude,

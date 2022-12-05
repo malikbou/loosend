@@ -1,14 +1,23 @@
-<div style="width: 100%; height: 600px;"
+<%= render "shared/navbar" %>
+
+<div class="map-showpage" style="width: 100%; height: 500px;"
   data-controller="map"
   id="show"
   data-map-markers-value="<%= @markers.to_json %>"
-  data-map-marker-value="<%= @marker.to_json %>"
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
 
+
 <div class="container">
+  <div class="d-flex justify-content-between">
+    <h3 class="toilet-title-show"><%= "#{@toilet.name}" %></h3>
+    <h4 class="direc">Directions</h4>
+    <a class="btn directions-button" href="<%="https://www.google.com/maps/dir/?api=1&destination=#{@toilet.address}"%>" target="_blank" role="button">
+    </a>
+  </div>
   <h3><strong><%= "#{@toilet.name}" %></strong></h3>
   <h5><%= "#{@toilet.address} | #{@avgrating} ⭐️" %></h5>
+
     <div class="row row-cols-1 row-cols-md-4 g-4 d-flex justify-content-center mt-3">
     <% @toilet.features.each do |feature| %>
       <% case feature.name %>
@@ -106,6 +115,7 @@
 
   <h5><%= "Leave a review for #{@toilet.name}" %></h5>
   <%= simple_form_for [@toilet, @review] do |f| %>
+
     <%= f.input :toilet_rating, collection: (1..5).to_a, label: "Rate your experience", input_html: {data: {controller: "star-rating"}} %>
     <%= f.input :comment, label: "Leave a comment (optional)"  %>
     <%= f.submit "Submit your review", class: "btn btn-primary" %>
