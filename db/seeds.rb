@@ -24,20 +24,20 @@ puts "\n"
 
 puts "Creating users..."
 user1 = {
-  email: "admin@toil.et",
-  password: "loo.send",
-  first_name: "Ad",
-  last_name: "Min"
+  email: "admin@admin",
+  password: "adminadmin",
+  first_name: "Admin",
+  last_name: "Adminton"
 }
 user2 = {
-  email: "daniela@tmail.com",
-  password: "cleanLatrine1",
+  email: "daniela@loosend.com",
+  password: "ilovetopoop",
   first_name: "Daniela",
   last_name: "Socaciu"
 }
 user3 = {
-  email: "gabriel@wc.com",
-  password: "joeBidet",
+  email: "gabriel@loosend.com",
+  password: "ilovetopoop",
   first_name: "Gabriel",
   last_name: "Bijlmakers"
 }
@@ -48,14 +48,14 @@ user4 = {
   last_name: "Sahasrabudhe"
 }
 user5 = {
-  email: "malik@tolet.com",
-  password: "love2poop",
+  email: "malik@loosend.com",
+  password: "ilovetopoop",
   first_name: "Malik",
   last_name: "Bouaoudia"
 }
 user6 = {
-  email: "felipe@toilet.com",
-  password: "love2poop",
+  email: "felipe@loosend.com",
+  password: "ilovetopoop",
   first_name: "Felipe",
   last_name: "Nossa"
 }
@@ -74,9 +74,93 @@ end
 puts "Finished features!"
 puts "\n"
 
-# Toilet.near([51.50, 0.12],200)
+puts "Creating REAL toilets..."
+toilet1 = {
+  name: "Brewhouse & Kitchen",
+  address: "397-400 Geffrye St London E2 8HZ",
+  opens_at: '10:00:00',
+  closes_at: '19:00:00',
+  fee: rand(0.00..10.00).round(2),
+  toilet_code: rand(1000..9999),
+  rating: rand(3..5)
+}
+toilet2 = {
+  name: "Howl At The Moon",
+  address: "178 Hoxton St London N1 5LH",
+  opens_at: '10:00:00',
+  closes_at: '19:00:00',
+  fee: rand(0.00..10.00).round(2),
+  toilet_code: rand(1000..9999),
+  rating: rand(3..5)
+}
+toilet3 = {
+  name: "The Lion & Lamb",
+  address: "46 Fanshaw St London N1 6LG",
+  opens_at: '10:00:00',
+  closes_at: '19:00:00',
+  fee: rand(0.00..10.00).round(2),
+  toilet_code: rand(1000..9999),
+  rating: rand(3..5)
+}
+toilet4 = {
+  name: "The George & Vulture",
+  address: "63 Pitfield St London N1 6BU",
+  opens_at: '10:00:00',
+  closes_at: '19:00:00',
+  fee: rand(0.00..10.00).round(2),
+  toilet_code: rand(1000..9999),
+  rating: rand(3..5)
+}
+toilet5 = {
+  name: "The Stag's Head",
+  address: "55 Orsman Rd London N1 5RA",
+  opens_at: '10:00:00',
+  closes_at: '19:00:00',
+  fee: rand(0.00..10.00).round(2),
+  toilet_code: rand(1000..9999),
+  rating: rand(3..5)
+}
+toilet6 = {
+  name: "Moko Made Cafe",
+  address: "211 Kingsland Rd London E2 8AN",
+  opens_at: '10:00:00',
+  closes_at: '19:00:00',
+  fee: rand(0.00..10.00).round(2),
+  toilet_code: rand(1000..9999),
+  rating: rand(3..5)
+}
+toilet7 = {
+  name: "Long White Cloud Cafe",
+  address: "151 Hackney Rd, London E2 8JL",
+  opens_at: '10:00:00',
+  closes_at: '19:00:00',
+  fee: rand(0.00..10.00).round(2),
+  toilet_code: rand(1000..9999),
+  rating: rand(3..5)
+}
+toilet8 = {
+  name: "Museum of the Home",
+  address: "136 Kingsland Rd, London E2 8EA",
+  opens_at: '10:00:00',
+  closes_at: '19:00:00',
+  fee: rand(0.00..10.00).round(2),
+  toilet_code: rand(1000..9999),
+  rating: rand(3..5)
+}
+[toilet1, toilet2, toilet3, toilet4, toilet5, toilet6, toilet7, toilet8].each do |attributes|
+  toilet = Toilet.create!(attributes)
+  puts "Created #{toilet.name} located at #{toilet.address}"
 
-puts "Creating toilets..."
+  # add random features to real toilets
+  Feature.all.sample(rand(3..5)).each do |feature|
+    ToiletFeature.create(toilet_id: toilet.id, feature_id: feature.id)
+    puts "\tAdded #{feature.name} feature to #{toilet.name}"
+  end
+end
+puts "Finished REAL toilets with toilet features!"
+puts "\n"
+
+puts "Creating FAKE toilets..."
 addresses = LONDON.dup
 100.times do
   attributes = {
@@ -97,7 +181,7 @@ addresses = LONDON.dup
     puts "\tAdded #{feature.name} feature to #{toilet.name}"
   end
 end
-puts "Finished toilets & toilet features!"
+puts "Finished FAKE toilets with toilet features!"
 puts "\n"
 
 puts "Creating reviews from random users for random toilets..."
