@@ -18,7 +18,7 @@ class ReviewsController < ApplicationController
       if @review.save
         redirect_to review_path(@review)
       else
-        flash[:alert] = "You need to be give a rating to submit a review!"
+        flash[:alert] = "You need to be give a rating to submit a review!g"
         redirect_to toilet_path(@toilet), status: :unprocessable_entity
       end
     else
