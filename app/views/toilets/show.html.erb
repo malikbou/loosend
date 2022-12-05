@@ -53,6 +53,17 @@
               </div>
             </div>
           </div>
+        <% when 'Paper Towels' %>
+          <div class="col-lg-4 col-md-4 col-sm-4 col-4">
+            <div class="d-flex flex-column">
+              <div class="icon-div p-2">
+                <%= image_tag "paper-towel.png", class:"feature"%>
+              </div>
+              <div class="feature-name p-2">
+                <%= feature.name %>
+              </div>
+            </div>
+          </div>
         <% when 'Baby Changing' %>
           <div class="col-lg-4 col-md-4 col-sm-4 col-4">
             <div class="d-flex flex-column">
@@ -80,6 +91,17 @@
             <div class="d-flex flex-column">
               <div class="icon-div p-2">
                 <%= image_tag "sink.png", class:"feature"%>
+              </div>
+              <div class="feature-name p-2">
+                <%= feature.name %>
+              </div>
+            </div>
+          </div>
+        <% when 'Spacious' %>
+          <div class="col-lg-4 col-md-4 col-sm-4 col-4">
+            <div class="d-flex flex-column">
+              <div class="icon-div p-2">
+                <%= image_tag "spacious.png", class:"feature"%>
               </div>
               <div class="feature-name p-2">
                 <%= feature.name %>

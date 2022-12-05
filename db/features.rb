@@ -3,9 +3,11 @@ module FeatureList
     'Accessible',
     'Gender Neutral',
     'Baby Changing',
-    'Mirror',
+    'Paper Towels',
     'Hand Dryer',
+    'Mirror',
     'Enclosed Stall',
-    'Private Sink'
+    'Private Sink',
+    'Spacious'
   ]
 end
