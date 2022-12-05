@@ -11,7 +11,7 @@ class ReviewsController < ApplicationController
         {
           lat: @toilet.latitude,
           lng: @toilet.longitude,
-          info_window: render_to_string(partial: "info_window", locals: {toilet: @toilet}),
+          info_window: render_to_string(partial: "info_window", locals: { toilet: @toilet }),
           image_url: helpers.asset_url("toilet-paper.png")
         }
       ]
@@ -21,8 +21,7 @@ class ReviewsController < ApplicationController
         render "toilets/show", status: :unprocessable_entity
       end
     else
-      flash[:alert] = "Something went wrong."
-      render template: "new" # , status: :unprocessable_entity
+      flash[:alert] = "You need to be logged in to leave a review."
       redirect_to new_user_session_path
     end
   end
