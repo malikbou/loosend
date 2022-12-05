@@ -11,7 +11,7 @@ class ReviewsController < ApplicationController
         {
           lat: @toilet.latitude,
           lng: @toilet.longitude,
-          info_window: render_to_string(partial: "info_window", locals: {toilet: @toilet}),
+          info_window: render_to_string(partial: "info_window", locals: { toilet: @toilet }),
           image_url: helpers.asset_url("toilet-paper.png")
         }
       ]
