@@ -176,3 +176,17 @@ background-color: white;
   border: 0cm;
   margin-top: 10px;
 }
+
+#see-all {
+  border-radius: 20px;
+  border: 0cm;
+  margin-top: 10px;
+  a{
+    text-decoration: none;
+    color: white;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+}
