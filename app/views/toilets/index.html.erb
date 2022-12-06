@@ -37,7 +37,11 @@
 
 <div class="container-cards">
   <div class="row mt-2">
-  <h2 class="x-loos">loos near you</h2>
+    <% if @features %>
+      <h2 class="x-loos"><%= "#{@toilets.length} loos near you with #{@features.map(&:name).join(", ")}" %></h2>
+    <% else %>
+      <h2 class="x-loos"><%= "#{@toilets.length} loos near you" %></h2>
+    <% end %>
     <% @toilets.first(14).each do |toilet| %>
     <div class="col-sm-12 mb-3" style="padding-left: 3px; padding-right: 3px">
       <%= link_to toilet_path(toilet), class: "card" do%>
