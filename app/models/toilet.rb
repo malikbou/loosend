@@ -16,4 +16,8 @@ class Toilet < ApplicationRecord
     uniq_toilet_ids = toilet_ids.select { |e| toilet_ids.count(e) == feature_amount }.uniq
     self.where(id: uniq_toilet_ids)
   end
+
+  def avgrating
+    reviews.pluck(:toilet_rating).sum / reviews.pluck(:toilet_rating).count.to_f
+  end
 end

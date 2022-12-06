@@ -14,7 +14,7 @@ class ToiletsController < ApplicationController
       {
         lat: toilet.latitude,
         lng: toilet.longitude,
-        info_window: render_to_string(partial: "info_window", locals: {toilet: toilet}),
+        info_window: render_to_string(partial: "info_window", locals: { toilet: toilet }),
         image_url: helpers.asset_url("toilet-paper.png")
       }
     end
@@ -28,7 +28,7 @@ class ToiletsController < ApplicationController
       {
         lat: @toilet.latitude,
         lng: @toilet.longitude,
-        info_window: render_to_string(partial: "info_window", locals: {toilet: @toilet}),
+        info_window: render_to_string(partial: "info_window", locals: { toilet: @toilet }),
         image_url: helpers.asset_url("toilet-paper.png")
       }
     ]
@@ -39,7 +39,7 @@ class ToiletsController < ApplicationController
       info_window: render_to_string(partial: "info_window", locals: {toilet: @toilet}),
       image_url: helpers.asset_url("pin.png")
     }
-    @avgrating = @toilet.reviews.pluck(:toilet_rating).sum/@toilet.reviews.pluck(:toilet_rating).count.to_f
+    @avgrating = @toilet.reviews.pluck(:toilet_rating).sum / @toilet.reviews.pluck(:toilet_rating).count.to_f
   end
 
   private
