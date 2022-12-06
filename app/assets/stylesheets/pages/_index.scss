@@ -167,8 +167,21 @@ background-color: white;
   margin-top: 10px;
 }
 
+
 .apply-filters:hover,
 .apply-filters:focus-visible,
 .apply-filters:active {
   background-color: #FAAC7C !important;
+
+#see-all {
+  border-radius: 20px;
+  border: 0cm;
+  margin-top: 10px;
+  a{
+    text-decoration: none;
+    color: white;
+    &:hover {
+      text-decoration: none;
+    }
+  }
 }

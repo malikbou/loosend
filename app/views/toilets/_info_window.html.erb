@@ -1,3 +1,7 @@
 <h2 class="toilet-name"><%= link_to "#{toilet.name}", toilet_path(toilet) %></h2>
+<% toilet.features.each do |feature| %>
+  <%= image_tag "#{feature.icon}", class:"feature"%>
+<% end %>
+<p>
 <%= "#{toilet.distance(toilet.latitude, toilet.longitude)} miles away" %>
-<p><%= toilet.address %></p>
+</p>

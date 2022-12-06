@@ -17,6 +17,15 @@ class Toilet < ApplicationRecord
     self.where(id: uniq_toilet_ids)
   end
 
+  def avgratingrounded
+    if reviews.pluck(:toilet_rating).present?
+      avgrating = reviews.pluck(:toilet_rating).sum / reviews.pluck(:toilet_rating).count.to_f
+      "#{avgrating.round(2)} ⭐️"
+    else
+      "No ratings yet"
+    end
+  end
+
   def distance(latitude, longitude)
     @lewagon_coordinates = [51.532667, -0.076991]
     Geocoder::Calculations.distance_between(@lewagon_coordinates, [latitude, longitude], options = { units: :mi }).round(1)
