@@ -20,20 +20,19 @@
   -webkit-text-stroke: 1px #225948;
 }
 
-.logout-button {
+.log-button {
   border-radius: 20px;
   color:white;
   font-family: 'Open Sans', sans-serif;
   text-decoration: none;
-  padding-left: 17px;
 }
 
 
 .nav-item {
-  // background-color:#FEA670;
-  // border: 2px solid #FFFFFF;
-  // width: 100px;
-  // border-radius: 20px;
-  // margin-left: 100px;
-  // padding: 3px;
+  border: 1px solid #FFFFFF;
+  width: 100px;
+  border-radius: 20px;
+  margin-left: 100px;
+  padding: 3px;
+  text-align: center;
 }
