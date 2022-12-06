@@ -118,6 +118,17 @@
               </div>
             </div>
           </div>
+        <% when 'Sanitary Bin' %>
+          <div class="col-lg-4 col-md-4 col-sm-4 col-4">
+            <div class="d-flex flex-column">
+              <div class="icon-div p-2">
+                <%= image_tag "bin.png", class:"feature"%>
+              </div>
+              <div class="feature-name p-2">
+                <%= feature.name %>
+              </div>
+            </div>
+          </div>
       <% end %>
     <% end %>
   </div>
