@@ -5,6 +5,7 @@ module FeatureList
     'Baby Changing',
     'Paper Towels',
     'Hand Dryer',
+    'Sanitary Bin',
     'Mirror',
     'Enclosed Stall',
     'Private Sink',
