@@ -16,4 +16,9 @@ class Toilet < ApplicationRecord
     uniq_toilet_ids = toilet_ids.select { |e| toilet_ids.count(e) == feature_amount }.uniq
     self.where(id: uniq_toilet_ids)
   end
+
+  def distance(latitude, longitude)
+    @lewagon_coordinates = [51.532667, -0.076991]
+    Geocoder::Calculations.distance_between(@lewagon_coordinates, [latitude, longitude], options = { units: :mi }).round(1)
+  end
 end
