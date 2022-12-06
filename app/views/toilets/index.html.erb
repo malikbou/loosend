@@ -1,9 +1,9 @@
 <%= render "shared/navbar" %>
 
-<div class="container d-flex justify-content-between">
+<div class="filters-box container d-flex justify-content-between">
   <div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-      Filters
+    <button class="filters-button dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      Filter
     </button>
     <ul class="dropdown-menu">
           <%= form_with url: "/toilets", method: :get do |form| %>
@@ -13,17 +13,11 @@
                   <%= h feature.name -%>
                 </li>
             <% end %>
-            <%= form.submit "Apply Filters", class: "btn btn-primary" %>
+            <%= form.submit "Apply Filters", class: "apply-filters btn btn-primary" %>
           <% end %>
         <a class="dropdown-item" href="#"><%= link_to "See all toilets", toilets_path%></a>
     </ul>
   </div>
-  <% if @features %>
-    Filters selected:
-    <%= @features.map(&:name).join(", ")%>
-  <% else %>
-    No filters applied
-  <% end %>
 </div>
 
 <% if @markers.empty? %>
@@ -44,13 +38,14 @@
 <div class="container-cards">
   <div class="row mt-2">
   <h2 class="x-loos">loos near you</h2>
-    <% @toilets.first(8).each do |toilet| %>
-
+    <% @toilets.first(14).each do |toilet| %>
     <div class="col-sm-12 mb-3" style="padding-left: 3px; padding-right: 3px">
       <%= link_to toilet_path(toilet), class: "card" do%>
         <div class="card-1">
           <p class="toilet-name"><%= toilet.name %><p>
-          <%# <small><%= "Address: #{toilet.address}"</small> %>
+          <p class="right-side-description">
+            <%= "#{toilet.distance(toilet.latitude, toilet.longitude)} miles away" %>
+          <p>
         </div>
         <div class="card-2">
           <p class="right-side-description"><%= "#{toilet.avgratingrounded}" %></p>

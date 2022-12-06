@@ -3,7 +3,7 @@ class ToiletsController < ApplicationController
   before_action :set_toilet, only: [:show]
 
   def index
-    @lewagon_coordinates = [51.53, -0.07]
+    @lewagon_coordinates = [51.532667, -0.076991]
     if params[:feature_ids].present?
       @features = Feature.where(id: params[:feature_ids])
       @toilets = Toilet.with_features(@features).near(@lewagon_coordinates, 20, :order => :distance)

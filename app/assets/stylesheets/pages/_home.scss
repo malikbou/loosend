@@ -27,7 +27,7 @@ html {
   color: #FDFAFA;
 }
 
-.btn-gradient {
+.home-button {
   color: white;
   padding: 8px 24px;
   position: absolute;
@@ -48,6 +48,23 @@ html {
   text-align: center;
 }
 
-.btn-gradient:active {
+.home-button:active {
   opacity: 0.5;
+}
+
+
+.home-button:hover {
+  color: white;
+  padding: 8px 24px;
+  position: absolute;
+  left: 120px;
+  top: 600px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight:700;
+  font-style: italic;
+  background: linear-gradient(#FEA670, #ee7e39);
+  border: 3px solid #FFFFFF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  text-decoration: none;
 }

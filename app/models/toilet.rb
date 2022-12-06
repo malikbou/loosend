@@ -25,4 +25,9 @@ class Toilet < ApplicationRecord
       "No ratings yet"
     end
   end
+
+  def distance(latitude, longitude)
+    @lewagon_coordinates = [51.532667, -0.076991]
+    Geocoder::Calculations.distance_between(@lewagon_coordinates, [latitude, longitude], options = { units: :mi }).round(1)
+  end
 end

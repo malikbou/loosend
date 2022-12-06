@@ -18,109 +18,19 @@
   <h5 class="address"><strong><%= "#{@toilet.address} | #{@toilet.avgratingrounded}" %></strong></h5>
   <div class="icons-card row row-cols-1 row-cols-md-4 g-4 d-flex justify-content-center mt-3">
     <% @toilet.features.each do |feature| %>
-      <% case feature.name %>
-        <% when 'Gender Neutral' %>
-          <div class="col-lg-4 col-md-4 col-sm-4 col-4">
-            <div class="d-flex flex-column">
-              <div class="icon-div p-2">
-                <%= image_tag "iconsss.png", class:"feature"%>
-              </div>
-              <div class="feature-name p-2">
-                <%= feature.name %>
-              </div>
-            </div>
+      <div class="col-lg-4 col-md-4 col-sm-4 col-4">
+        <div class="d-flex flex-column">
+          <div class="icon-div p-2">
+            <%= image_tag "#{feature.icon}", class:"feature"%>
           </div>
-        <% when 'Enclosed Stall' %>
-          <div class="col-lg-4 col-md-4 col-sm-4 col-4">
-            <div class="d-flex flex-column">
-              <div class="icon-div p-2">
-                <%= image_tag "door.png", class:"feature"%>
-              </div>
-              <div class="feature-name p-2">
-                <%= feature.name %>
-              </div>
-            </div>
+          <div class="feature-name p-2">
+            <%= feature.name %>
           </div>
-        <% when 'Hand Dryer' %>
-          <div class="col-lg-4 col-md-4 col-sm-4 col-4">
-            <div class="d-flex flex-column">
-              <div class="icon-div p-2">
-                <%= image_tag "hand-dryer.png", class:"feature"%>
-              </div>
-              <div class="feature-name p-2">
-                <%= feature.name %>
-              </div>
-            </div>
-          </div>
-        <% when 'Paper Towels' %>
-          <div class="col-lg-4 col-md-4 col-sm-4 col-4">
-            <div class="d-flex flex-column">
-              <div class="icon-div p-2">
-                <%= image_tag "paper-towel.png", class:"feature"%>
-              </div>
-              <div class="feature-name p-2">
-                <%= feature.name %>
-              </div>
-            </div>
-          </div>
-        <% when 'Baby Changing' %>
-          <div class="col-lg-4 col-md-4 col-sm-4 col-4">
-            <div class="d-flex flex-column">
-              <div class="icon-div p-2">
-                <%= image_tag "baby-boy.png", class:"feature"%>
-              </div>
-              <div class="feature-name p-2">
-                <%= feature.name %>
-              </div>
-            </div>
-          </div>
-        <% when 'Accessible' %>
-          <div class="col-lg-4 col-md-4 col-sm-4 col-4">
-            <div class="d-flex flex-column">
-              <div class="icon-div p-2">
-                <%= image_tag "disability.png", class:"feature"%>
-              </div>
-              <div class="feature-name p-2">
-                <%= feature.name %>
-              </div>
-            </div>
-          </div>
-        <% when 'Private Sink' %>
-          <div class="col-lg-4 col-md-4 col-sm-4 col-4">
-            <div class="d-flex flex-column">
-              <div class="icon-div p-2">
-                <%= image_tag "sink.png", class:"feature"%>
-              </div>
-              <div class="feature-name p-2">
-                <%= feature.name %>
-              </div>
-            </div>
-          </div>
-        <% when 'Spacious' %>
-          <div class="col-lg-4 col-md-4 col-sm-4 col-4">
-            <div class="d-flex flex-column">
-              <div class="icon-div p-2">
-                <%= image_tag "spacious.png", class:"feature"%>
-              </div>
-              <div class="feature-name p-2">
-                <%= feature.name %>
-              </div>
-            </div>
-          </div>
-        <% when 'Mirror' %>
-          <div class="col-lg-4 col-md-4 col-sm-4 col-4">
-            <div class="d-flex flex-column">
-              <div class="icon-div p-2">
-                <%= image_tag "mirror.png", class:"feature"%>
-              </div>
-              <div class="feature-name p-2">
-                <%= feature.name %>
-              </div>
-            </div>
-          </div>
-      <% end %>
+        </div>
+      </div>
     <% end %>
   </div>
+
   <div class="div-for-filipe">
   <%# <h5><%= "Leave a review for #{@toilet.name}"</h5> %>
   <%= simple_form_for [@toilet, @review] do |f| %>
@@ -132,7 +42,7 @@
   <%# <%= link_to "- Back to All Toilets -", toilets_path %>
   </div>
 
-  <h5 class="all-reviews mt-3"><%= "All reviews" %></h5>
+  <h5 class="all-reviews mt-3"><%= "all reviews" %></h5>
   <ul class="list-group">
     <% @toilet.reviews.each do |review| %>
       <li class="reviews-cards list-group-item mt-3">
