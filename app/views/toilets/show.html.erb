@@ -34,9 +34,7 @@
   <div class="div-for-filipe">
   <%# <h5><%= "Leave a review for #{@toilet.name}"</h5> %>
   <%= simple_form_for [@toilet, @review] do |f| %>
-    <h3>
-      <%= f.input :toilet_rating, required: false, collection: (1..5).to_a, label: "Rate your experience", input_html: {data: {controller: "star-rating"} } %>
-    </h3>
+    <%= f.input :toilet_rating, required: false, collection: (1..5).to_a, label: "Rate your experience", input_html: {data: {controller: "star-rating"} } %>
     <%= f.input :comment, label: "Leave a comment (optional)"  %>
     <%= f.submit "Submit your review", class: "button-reviews btn btn-primary" %>
   <% end %>
