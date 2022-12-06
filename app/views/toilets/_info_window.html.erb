@@ -1,2 +1,3 @@
-<h2><%= link_to "#{toilet.name}", toilet_path(toilet) %></h2>
+<h2 class="toilet-name"><%= link_to "#{toilet.name}", toilet_path(toilet) %></h2>
+<%= "#{toilet.distance(toilet.latitude, toilet.longitude)} miles away" %>
 <p><%= toilet.address %></p>

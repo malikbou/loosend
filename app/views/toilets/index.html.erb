@@ -38,16 +38,17 @@
 <div class="container-cards">
   <div class="row mt-2">
   <h2 class="x-loos">loos near you</h2>
-    <% @toilets.first(8).each do |toilet| %>
-
+    <% @toilets.first(14).each do |toilet| %>
     <div class="col-sm-12 mb-3" style="padding-left: 3px; padding-right: 3px">
       <%= link_to toilet_path(toilet), class: "card" do%>
         <div class="card-1">
           <p class="toilet-name"><%= toilet.name %><p>
-          <%# <small><%= "Address: #{toilet.address}"</small> %>
+          <p class="right-side-description">
+            <%= "#{toilet.distance(toilet.latitude, toilet.longitude)} miles away" %>
+          <p>
         </div>
         <div class="card-2">
-          <p class="right-side-description"><%= "Rating: #{toilet.rating} ⭐️" %></p>
+          <p class="right-side-description"><%= "#{toilet.rating} ⭐️" %></p>
           <p class="right-side-description"><%=  "🕑 #{toilet.opens_at.strftime('%H:%M')}
           - #{toilet.closes_at.strftime('%H:%M')}" %>
           </p>

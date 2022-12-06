@@ -78,35 +78,35 @@ puts "Creating REAL toilets..."
 toilet1 = {
   name: "Brewhouse & Kitchen",
   address: "397-400 Geffrye St London E2 8HZ",
-  opens_at: '10:00:00',
-  closes_at: '19:00:00',
+  opens_at: '12:00:00',
+  closes_at: '23:00:00',
   fee: rand(0.00..10.00).round(2),
   toilet_code: rand(1000..9999),
-  rating: rand(3..5)
+  rating: 3
 }
 toilet2 = {
   name: "Howl At The Moon",
   address: "178 Hoxton St London N1 5LH",
-  opens_at: '10:00:00',
-  closes_at: '19:00:00',
+  opens_at: '12:00:00',
+  closes_at: '01:00:00',
   fee: rand(0.00..10.00).round(2),
   toilet_code: rand(1000..9999),
-  rating: rand(3..5)
+  rating: 5
 }
 toilet3 = {
   name: "The Lion & Lamb",
   address: "46 Fanshaw St London N1 6LG",
-  opens_at: '10:00:00',
-  closes_at: '19:00:00',
+  opens_at: '16:00:00',
+  closes_at: '02:00:00',
   fee: rand(0.00..10.00).round(2),
   toilet_code: rand(1000..9999),
-  rating: rand(3..5)
+  rating: 4
 }
 toilet4 = {
   name: "The George & Vulture",
   address: "63 Pitfield St London N1 6BU",
-  opens_at: '10:00:00',
-  closes_at: '19:00:00',
+  opens_at: '12:00:00',
+  closes_at: '23:00:00',
   fee: rand(0.00..10.00).round(2),
   toilet_code: rand(1000..9999),
   rating: rand(3..5)
@@ -118,13 +118,13 @@ toilet5 = {
   closes_at: '19:00:00',
   fee: rand(0.00..10.00).round(2),
   toilet_code: rand(1000..9999),
-  rating: rand(3..5)
+  rating: 3
 }
 toilet6 = {
   name: "Moko Made Cafe",
   address: "211 Kingsland Rd London E2 8AN",
-  opens_at: '10:00:00',
-  closes_at: '19:00:00',
+  opens_at: '08:30:00',
+  closes_at: '18:00:00',
   fee: rand(0.00..10.00).round(2),
   toilet_code: rand(1000..9999),
   rating: rand(3..5)
@@ -132,7 +132,7 @@ toilet6 = {
 toilet7 = {
   name: "Long White Cloud Cafe",
   address: "151 Hackney Rd, London E2 8JL",
-  opens_at: '10:00:00',
+  opens_at: '07:30:00',
   closes_at: '19:00:00',
   fee: rand(0.00..10.00).round(2),
   toilet_code: rand(1000..9999),
@@ -142,7 +142,7 @@ toilet8 = {
   name: "Museum of the Home",
   address: "136 Kingsland Rd, London E2 8EA",
   opens_at: '10:00:00',
-  closes_at: '19:00:00',
+  closes_at: '18:00:00',
   fee: rand(0.00..10.00).round(2),
   toilet_code: rand(1000..9999),
   rating: rand(3..5)
