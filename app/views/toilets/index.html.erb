@@ -53,7 +53,7 @@
           <%# <small><%= "Address: #{toilet.address}"</small> %>
         </div>
         <div class="card-2">
-          <p class="right-side-description"><%= "Rating: #{toilet.avgrating.round(2)} ⭐️" %></p>
+          <p class="right-side-description"><%= "#{toilet.avgratingrounded}" %></p>
           <p class="right-side-description"><%=  "🕑 #{toilet.opens_at.strftime('%H:%M')}
           - #{toilet.closes_at.strftime('%H:%M')}" %>
           </p>

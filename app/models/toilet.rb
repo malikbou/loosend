@@ -17,7 +17,12 @@ class Toilet < ApplicationRecord
     self.where(id: uniq_toilet_ids)
   end
 
-  def avgrating
-    reviews.pluck(:toilet_rating).sum / reviews.pluck(:toilet_rating).count.to_f
+  def avgratingrounded
+    if reviews.pluck(:toilet_rating).present?
+      avgrating = reviews.pluck(:toilet_rating).sum / reviews.pluck(:toilet_rating).count.to_f
+      "#{avgrating.round(2)} ⭐️"
+    else
+      "No ratings yet"
+    end
   end
 end
