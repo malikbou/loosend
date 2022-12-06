@@ -1,5 +1,6 @@
 // Import page-specific CSS files here.
 @import "home";
+@import "show";
 
 .container-map {
   padding: 0;
@@ -172,12 +173,13 @@ background-color: white;
 .apply-filters:focus-visible,
 .apply-filters:active {
   background-color: #FAAC7C !important;
+}
 
 #see-all {
   border-radius: 20px;
   border: 0cm;
   margin-top: 10px;
-  a{
+  a {
     text-decoration: none;
     color: white;
     &:hover {
