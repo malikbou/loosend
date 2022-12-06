@@ -20,19 +20,19 @@
   -webkit-text-stroke: 1px #225948;
 }
 
-.logout-button {
+.log-button {
   border-radius: 20px;
-  text-align: center;
   color:white;
   font-family: 'Open Sans', sans-serif;
+  text-decoration: none;
 }
 
 
 .nav-item {
-  background-color:#FEA670;
-  border: 2px solid #FFFFFF;
+  border: 1px solid #FFFFFF;
   width: 100px;
   border-radius: 20px;
   margin-left: 100px;
   padding: 3px;
+  text-align: center;
 }
