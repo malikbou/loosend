@@ -38,9 +38,9 @@
 <div class="container-cards">
   <div class="row mt-2">
     <% if @features %>
-      <%= @features.map(&:name).join(", ")%>
+      <h3 class="x-loos"><%= "#{@toilets.length} loos near you with #{@features.map(&:name).join(", ")}" %></h3>
     <% else %>
-      <h2 class="x-loos"><% "#{@toilets.length}" %> loos near you</h2>
+      <h3 class="x-loos"><%= "#{@toilets.length} loos near you" %></h3>
     <% end %>
     <% @toilets.first(14).each do |toilet| %>
     <div class="col-sm-12 mb-3" style="padding-left: 3px; padding-right: 3px">
