@@ -48,10 +48,8 @@
       <li class="reviews-cards list-group-item mt-3">
        <strong><%="#{review.user.first_name} on #{review.created_at.strftime("%A, %b %d, %Y")}" %></strong>
        <br>
-        <strong><%= "#{review.toilet_rating} ⭐️" %>
-        </strong>
-        <p><%= "#{review.comment}" %>  </p>
-
+        <strong><%= "#{review.toilet_rating} ⭐️" %></strong>
+        <p><%= "#{review.comment}" %></p>
       </li>
     <% end %>
   </ul>
