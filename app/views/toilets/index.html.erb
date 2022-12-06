@@ -1,8 +1,8 @@
 <%= render "shared/navbar" %>
 
-<div class="container d-flex justify-content-between">
+<div class="filters-box container d-flex justify-content-between">
   <div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <button class="filters-button dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
       Filter
     </button>
     <ul class="dropdown-menu">
@@ -13,17 +13,11 @@
                   <%= h feature.name -%>
                 </li>
             <% end %>
-            <%= form.submit "Apply Filters", class: "btn btn-primary" %>
+            <%= form.submit "Apply Filters", class: "apply-filters btn btn-primary" %>
           <% end %>
         <a class="dropdown-item" href="#"><%= link_to "See all toilets", toilets_path%></a>
     </ul>
   </div>
-  <% if @features %>
-    Features selected:
-    <%= @features.map(&:name).join(", ")%>
-  <% else %>
-    No filter applied
-  <% end %>
 </div>
 
 <% if @markers.empty? %>

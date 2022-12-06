@@ -141,6 +141,38 @@
   color: grey;
 }
 
-// create the border of the card
-// put some padding on the class "card" to not make the text stick on the borders
-// remove the uderline blue thing on the text "hint" decortion?
+.filters-box {
+background-color: white;
+}
+
+.filters-button {
+  background-color:#6BC7AB;
+  position: absolute;
+  top: 8;
+  left: -6;
+  z-index: 998;
+  // border: 2px solid #FFFFFF;
+  width: 100px;
+  border-radius: 20px;
+  // margin-left: 10px;
+  padding: 3px;
+  margin: 5px;
+  margin-left: 5px;
+  border: 0cm;
+  transition-duration: 0.4s;
+  font-family: 'Open Sans', sans-serif;
+  color: white;
+}
+
+.filters-button:hover {background-color: #43B190;}
+
+.dropdown-menu {
+ border-radius: 20px;
+ padding-left: 4px;}
+
+.apply-filters{
+  background-color: #FF731D;
+  border-radius: 20px;
+  border: 0cm;
+  margin-top: 10px;
+}
