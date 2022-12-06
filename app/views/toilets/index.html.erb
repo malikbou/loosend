@@ -3,7 +3,7 @@
 <div class="container d-flex justify-content-between">
   <div class="dropdown">
     <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-      Filters
+      Filter
     </button>
     <ul class="dropdown-menu">
           <%= form_with url: "/toilets", method: :get do |form| %>
@@ -19,10 +19,10 @@
     </ul>
   </div>
   <% if @features %>
-    Filters selected:
+    Features selected:
     <%= @features.map(&:name).join(", ")%>
   <% else %>
-    No filters applied
+    No filter applied
   <% end %>
 </div>
 
