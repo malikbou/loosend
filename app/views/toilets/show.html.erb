@@ -11,9 +11,9 @@
 <div class="container-bcg">
   <div class="d-flex justify-content-between">
     <h3 class="toilet-title-show"><%= "#{@toilet.name}" %></h3>
-    <h4 class="direc">Directions</h4>
-    <a class="btn directions-button" href="<%="https://www.google.com/maps/dir/?api=1&destination=#{@toilet.address}"%>" target="_blank" role="button">
-    </a>
+    <div id="gmap-btn">
+      <a class="btn directions-button" href="<%="https://www.google.com/maps/dir/?api=1&destination=#{@toilet.address}"%>" target="_blank" role="button">Directions</a>
+    </div>
   </div>
   <h5 class="address"><strong><%= "#{@toilet.address} | #{@toilet.avgratingrounded}" %></strong></h5>
   <div class="icons-card row row-cols-1 row-cols-md-4 g-4 d-flex justify-content-center mt-3">
