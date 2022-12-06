@@ -21,7 +21,7 @@
 
 .dotted {
   margin-left: 135px;
-  border-top: 5px dotted rgb(255, 255, 255);
+  border-top: 1px solid rgb(255, 255, 255);
   border-color: white;
   margin-bottom: 0;
   width: 30%;
@@ -33,7 +33,6 @@
   font-size: 25px;
   font-weight: bolder;
   color: #225948;
-  // text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   font-family: 'Open Sans', sans-serif;
   text-decoration: underline white;
   text-align: center;
@@ -52,20 +51,15 @@
 }
 
 .card {
-  // align-items: center;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-  // top: 60px;
-  // right: 0px;
-  // left:0px;
   display: flex;
   flex-direction: row;
   height: 6em;
-  // justify-content: space-between;
   margin-left: 20px;
   margin-right: 20px;
   border-radius: 25px;
-  border: 2px solid #225948;
-  margin-top: 15px;
+  border: 1px solid #225948;
+  margin-top: 10px;
   text-decoration: none;
 }
 
@@ -85,7 +79,6 @@
   border-radius: 20px;
   padding: 10px;
   padding-left: 30px;
-  // font-size: 15px;
   text-decoration: none;
   a {
     font-size: 8px;
@@ -96,7 +89,6 @@
     text-decoration: none;
   }
   p {
-    // font-size: 15px;
     margin: 0;
     text-decoration: none;
   }
@@ -148,13 +140,11 @@ background-color: white;
 .filters-button {
   background-color:#6BC7AB;
   position: absolute;
-  top: 8;
-  left: -6;
+  top: 9px;
+  left: -5px;
   z-index: 998;
-  // border: 2px solid #FFFFFF;
   width: 100px;
   border-radius: 20px;
-  // margin-left: 10px;
   padding: 3px;
   margin: 5px;
   margin-left: 5px;
@@ -175,4 +165,10 @@ background-color: white;
   border-radius: 20px;
   border: 0cm;
   margin-top: 10px;
+}
+
+.apply-filters:hover,
+.apply-filters:focus-visible,
+.apply-filters:active {
+  background-color: #FAAC7C !important;
 }
