@@ -3,14 +3,15 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static values = {
     apiKey: String,
-    markers: Array
+    markers: Array,
+    page: String
   }
 
   connect() {
     mapboxgl.accessToken = this.apiKeyValue
     this.map = new mapboxgl.Map({
       container: this.element,
-      style: "mapbox://styles/mapbox/streets-v12"
+      style: "mapbox://styles/mapbox/streets-v11"
     })
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
@@ -25,9 +26,15 @@ export default class extends Controller {
       // Add the control to the map.
       this.map.addControl(geolocate);
 
-      this.map.on('load', () => {
-        geolocate.trigger();
+      // Auto trigger logic
+      const currentPage = this.pageValue
+
+      if (currentPage === 'index') {
+        console.log('add load trigger')
+        this.map.on('load', () => {
+          geolocate.trigger();
         });
+      }
 
   }
 
@@ -41,8 +48,8 @@ export default class extends Controller {
       customMarker.className = "marker"
       customMarker.style.backgroundImage = `url('${marker.image_url}')`
       customMarker.style.backgroundSize = "contain"
-      customMarker.style.width = "15px"
-      customMarker.style.height = "15px"
+      customMarker.style.width = "25px"
+      customMarker.style.height = "25px"
 
       // Pass the element as an argument to the new marker
       new mapboxgl.Marker(customMarker)

@@ -1,14 +1,29 @@
 class ReviewsController < ApplicationController
+  skip_before_action :authenticate_user!, :only => [:create]
   before_action :set_toilet, only: %i[new create]
 
   def create
-    @review = Review.new(review_params)
-    @review.toilet = @toilet
-    @review.user = current_user
-    if @review.save
-      redirect_to review_path(@review)
+    if user_signed_in?
+      @review = Review.new(review_params)
+      @review.toilet = @toilet
+      @review.user = current_user
+      @markers = [
+        {
+          lat: @toilet.latitude,
+          lng: @toilet.longitude,
+          info_window: render_to_string(partial: "info_window", locals: { toilet: @toilet }),
+          image_url: helpers.asset_url("toilet-paper.png")
+        }
+      ]
+      if @review.save
+        redirect_to review_path(@review)
+      else
+        flash[:alert] = "You need to be give a rating to submit a review!"
+        redirect_to toilet_path(@toilet), status: :unprocessable_entity
+      end
     else
-      render template: "new", status: :unprocessable_entity
+      flash[:alert] = "You need to be logged in to leave a review."
+      redirect_to new_user_session_path
     end
   end
 

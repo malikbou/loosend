@@ -1,69 +1,64 @@
 <%= render "shared/navbar" %>
 
-<div style="width: 100%; height: 600px;"
+<div class="map-showpage" style="width: 100%; height: 400px;"
   data-controller="map"
+  data-map-page-value="show"
   data-map-markers-value="<%= @markers.to_json %>"
-  data-map-marker-value="<%= @marker.to_json %>"
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
 
-<div class="container">
-  <h3><strong><%= "#{@toilet.name}" %></strong></h3>
-  <h5><%= "#{@toilet.address} | #{@toilet.rating} ⭐️" %></h5>
-    <div class="row row-cols-1 row-cols-md-4 g-4 d-flex justify-content-center mt-3">
+
+<div class="container-bcg">
+  <div class="d-flex justify-content-between">
+    <h3 class="toilet-title-show"><%= "#{@toilet.name}" %></h3>
+    <h4 class="direc">Directions</h4>
+    <a class="btn directions-button" href="<%="https://www.google.com/maps/dir/?api=1&destination=#{@toilet.address}"%>" target="_blank" role="button">
+    </a>
+  </div>
+  <h5 class="address"><strong><%= "#{@toilet.address} | #{@avgrating.round(2)} ⭐️" %></strong></h5>
+  <div class="icons-card row row-cols-1 row-cols-md-4 g-4 d-flex justify-content-center mt-3">
     <% @toilet.features.each do |feature| %>
       <% case feature.name %>
-        <% when 'Men' %>
-          <div class="col-lg-4 col-md-4 col-sm-4 col-4">
-            <div class="d-flex flex-column">
-              <div class="p-2">
-                <%= image_tag "male.png", class:"feature"%>
-              </div>
-              <div class="p-2">
-                <%= feature.name %>
-              </div>
-            </div>
-          </div>
-        <% when 'Women' %>
-          <div class="col-lg-4 col-md-4 col-sm-4 col-4">
-            <div class="d-flex flex-column">
-              <div class="p-2">
-                <%= image_tag "female.png", class:"feature"%>
-              </div>
-              <div class="p-2">
-                <%= feature.name %>
-              </div>
-            </div>
-          </div>
         <% when 'Gender Neutral' %>
           <div class="col-lg-4 col-md-4 col-sm-4 col-4">
             <div class="d-flex flex-column">
-              <div class="p-2">
-                <%= image_tag "genderless-solid.svg", class:"feature"%>
+              <div class="icon-div p-2">
+                <%= image_tag "iconsss.png", class:"feature"%>
               </div>
-              <div class="p-2">
+              <div class="feature-name p-2">
                 <%= feature.name %>
               </div>
             </div>
           </div>
-        <% when 'Privacy' %>
+        <% when 'Enclosed Stall' %>
           <div class="col-lg-4 col-md-4 col-sm-4 col-4">
             <div class="d-flex flex-column">
-              <div class="p-2">
-                <%= image_tag "privacy.png", class:"feature"%>
+              <div class="icon-div p-2">
+                <%= image_tag "door.png", class:"feature"%>
               </div>
-              <div class="p-2">
+              <div class="feature-name p-2">
                 <%= feature.name %>
               </div>
             </div>
           </div>
-        <% when 'Automatic' %>
+        <% when 'Hand Dryer' %>
           <div class="col-lg-4 col-md-4 col-sm-4 col-4">
             <div class="d-flex flex-column">
-              <div class="p-2">
+              <div class="icon-div p-2">
                 <%= image_tag "hand-dryer.png", class:"feature"%>
               </div>
-              <div class="p-2">
+              <div class="feature-name p-2">
+                <%= feature.name %>
+              </div>
+            </div>
+          </div>
+        <% when 'Paper Towels' %>
+          <div class="col-lg-4 col-md-4 col-sm-4 col-4">
+            <div class="d-flex flex-column">
+              <div class="icon-div p-2">
+                <%= image_tag "paper-towel.png", class:"feature"%>
+              </div>
+              <div class="feature-name p-2">
                 <%= feature.name %>
               </div>
             </div>
@@ -71,10 +66,10 @@
         <% when 'Baby Changing' %>
           <div class="col-lg-4 col-md-4 col-sm-4 col-4">
             <div class="d-flex flex-column">
-              <div class="p-2">
-                <%= image_tag "baby-solid.svg", class:"feature"%>
+              <div class="icon-div p-2">
+                <%= image_tag "baby-boy.png", class:"feature"%>
               </div>
-              <div class="p-2">
+              <div class="feature-name p-2">
                 <%= feature.name %>
               </div>
             </div>
@@ -82,10 +77,32 @@
         <% when 'Accessible' %>
           <div class="col-lg-4 col-md-4 col-sm-4 col-4">
             <div class="d-flex flex-column">
-              <div class="p-2">
-                <%= image_tag "wheelchair-solid.svg", class:"feature"%>
+              <div class="icon-div p-2">
+                <%= image_tag "disability.png", class:"feature"%>
               </div>
-              <div class="p-2">
+              <div class="feature-name p-2">
+                <%= feature.name %>
+              </div>
+            </div>
+          </div>
+        <% when 'Private Sink' %>
+          <div class="col-lg-4 col-md-4 col-sm-4 col-4">
+            <div class="d-flex flex-column">
+              <div class="icon-div p-2">
+                <%= image_tag "sink.png", class:"feature"%>
+              </div>
+              <div class="feature-name p-2">
+                <%= feature.name %>
+              </div>
+            </div>
+          </div>
+        <% when 'Spacious' %>
+          <div class="col-lg-4 col-md-4 col-sm-4 col-4">
+            <div class="d-flex flex-column">
+              <div class="icon-div p-2">
+                <%= image_tag "spacious.png", class:"feature"%>
+              </div>
+              <div class="feature-name p-2">
                 <%= feature.name %>
               </div>
             </div>
@@ -93,35 +110,39 @@
         <% when 'Mirror' %>
           <div class="col-lg-4 col-md-4 col-sm-4 col-4">
             <div class="d-flex flex-column">
-              <div class="p-2">
+              <div class="icon-div p-2">
                 <%= image_tag "mirror.png", class:"feature"%>
               </div>
-              <div class="p-2">
+              <div class="feature-name p-2">
                 <%= feature.name %>
               </div>
             </div>
           </div>
       <% end %>
     <% end %>
-    </div>
-
-  <h5><%= "Leave a review for #{@toilet.name}" %></h5>
+  </div>
+  <div class="div-for-filipe">
+  <%# <h5><%= "Leave a review for #{@toilet.name}"</h5> %>
   <%= simple_form_for [@toilet, @review] do |f| %>
-    <%= f.input :toilet_rating %>
-    <%= f.input :comment %>
-    <%= f.submit "Leave review", class: "btn btn-primary" %>
+    <%= f.input :toilet_rating, required: false, collection: (1..5).to_a, label: "Rate your experience", input_html: {data: {controller: "star-rating"} } %>
+    <%= f.input :comment, label: "Leave a comment (optional)"  %>
+    <%= f.submit "Submit your review", class: "button-reviews btn btn-primary" %>
   <% end %>
-  <%= link_to "Back to Toilets", toilets_path %>
+  <br>
+  <%# <%= link_to "- Back to All Toilets -", toilets_path %>
+  </div>
 
-  <h5 class="mt-3"><%= "Reviews for #{@toilet.name} left by other users" %></h5>
+  <h5 class="all-reviews mt-3"><%= "all reviews" %></h5>
   <ul class="list-group">
     <% @toilet.reviews.each do |review| %>
-      <li class="list-group-item mt-3">
-        <%= "Review left by: #{review.user.first_name} at #{review.created_at}" %>
+      <li class="reviews-cards list-group-item mt-3">
+       <strong><%="#{review.user.first_name} on #{review.created_at.strftime("%A, %b %d, %Y")}" %></strong>
         <p>
-          <%= "Overall Rating: #{review.toilet_rating}" %>
+
+          <%= "Rating: #{review.toilet_rating} ⭐️" %>
         </p>
-        <p><%= "Comment: #{review.comment}" %></p>
+        <p><%= "#{review.comment}" %>  </p>
+
       </li>
     <% end %>
   </ul>

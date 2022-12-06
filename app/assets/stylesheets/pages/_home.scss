@@ -16,21 +16,26 @@ html {
   font-family: 'Titan One', cursive;
   color: #FDFAFA;
   font-size: 55px;
-  padding-top: 100px;
+  padding-top: 50px;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   -webkit-text-stroke: 1px #225948;
 }
 
 .slogan {
   font-family: 'Open Sans', sans-serif;
+  font-style: italic;
   color: #FDFAFA;
 }
 
 .btn-gradient {
   color: white;
   padding: 8px 24px;
+  position: absolute;
+  left: 120px;
+  top: 600px;
   font-family: 'Open Sans', sans-serif;
   font-weight:700;
+  font-style: italic;
   background: linear-gradient(#FEA670, #ee7e39);
   border: 3px solid #FFFFFF;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -39,7 +44,7 @@ html {
 }
 
 .center {
-  margin-top: 400px;
+  //margin-top: 450px;
   text-align: center;
 }
 
