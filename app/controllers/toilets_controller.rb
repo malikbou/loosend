@@ -23,7 +23,7 @@ class ToiletsController < ApplicationController
   def show
     @toilet = Toilet.find(params[:id])
     @review = Review.new
-    @reviews = Review.where(toilet_id: params[:id])
+    @reviews = Review.where(toilet_id: params[:id]).order(updated_at: :desc)
     @markers = [
       {
         lat: @toilet.latitude,

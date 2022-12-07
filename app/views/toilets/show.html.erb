@@ -46,7 +46,7 @@
         <h3 class="toilet-title-show" id="exampleModalLabel"><%= "#{@toilet.name}" %></h3>
       </div>
       <div class="modal-body">
-        <%= "Thank you for leaving a review, #{current_user.first_name.capitalize}!" %>
+        <%= "Thank you for leaving a review, #{current_user.first_name.capitalize}!" if user_signed_in? %>
       </div>
       <div class="modal-footer">
         <%= link_to "Close", toilet_path(@toilet), class: "btn btn-secondary", id: "see-all" %>
@@ -60,7 +60,7 @@
 
   <h5 class="all-reviews mt-3"><%= "all reviews" %></h5>
   <ul class="list-group">
-    <% @toilet.reviews.each do |review| %>
+    <% @reviews.each do |review| %>
       <% if review.comment.present? %>
         <li class="reviews-cards list-group-item mt-3">
         <strong><%="#{review.user.first_name} on #{review.created_at.strftime("%A, %b %d, %Y")}" %></strong>
