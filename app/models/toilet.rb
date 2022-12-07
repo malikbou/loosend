@@ -40,6 +40,10 @@ class Toilet < ApplicationRecord
     end
   end
 
+  def rating_html
+    "⭐️ #{self.avgratingrounded} #{self.ratings_category} (#{self.reviews.count})"
+  end
+
   def distance(latitude, longitude)
     @lewagon_coordinates = [51.532667, -0.076991]
     Geocoder::Calculations.distance_between(@lewagon_coordinates, [latitude, longitude], options = { units: :mi }).round(1)
