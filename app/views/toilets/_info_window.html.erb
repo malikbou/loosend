@@ -1,7 +1,13 @@
-<h2 class="toilet-name"><%= link_to "#{toilet.name}", toilet_path(toilet) %></h2>
-<% toilet.features.each do |feature| %>
-  <%= image_tag "#{feature.icon}", class:"feature"%>
+<%= link_to toilet_path(toilet) do %>
+<div>
+  <h2 class="toilet-name"><%= "#{toilet.name}" %></h2>
+  <% toilet.features.each do |feature| %>
+    <%= image_tag "#{feature.icon}", id:"pop-feature"%>
+  <% end %>
+  <p>
+    <%= "#{toilet.rating_html}" %>
+    <br>
+    <%= "#{toilet.distance(toilet.latitude, toilet.longitude)} miles away" %> <br>
+  </p>
+</div>
 <% end %>
-<p>
-<%= "#{toilet.distance(toilet.latitude, toilet.longitude)} miles away" %>
-</p>
