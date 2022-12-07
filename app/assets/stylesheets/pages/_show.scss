@@ -26,7 +26,7 @@
   border-radius: 20px;
   font-family: 'Open Sans', sans-serif;
   font-size:medium;
-  z-index: 9999;
+  z-index: 998;
 }
 
 // .direc {
@@ -162,4 +162,9 @@
 
 :root {
   --gl-star-size: 60px;
+}
+
+.modal-content {
+  background-color:#97D8C4;
+  border-radius: 20px;
 }
