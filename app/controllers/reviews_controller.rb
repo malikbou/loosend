@@ -7,19 +7,23 @@ class ReviewsController < ApplicationController
       @review = Review.new(review_params)
       @review.toilet = @toilet
       @review.user = current_user
-      @markers = [
-        {
-          lat: @toilet.latitude,
-          lng: @toilet.longitude,
-          info_window: render_to_string(partial: "info_window", locals: { toilet: @toilet }),
-          image_url: helpers.asset_url("toilet-paper.png")
-        }
-      ]
+      # @markers = [
+      #   {
+      #     lat: @toilet.latitude,
+      #     lng: @toilet.longitude,
+      #     info_window: render_to_string(partial: "toilets/info_window", locals: { toilet: @toilet }),
+      #     image_url: helpers.asset_url("toilet-paper.png")
+      #   }
+      # ]
       if @review.save
+        respond_to do |format|
+          format.json { render json: @review }
+        end
         # redirect_to toilet_path(@toilet)
       else
-        flash[:alert] = "You need to be give a rating to submit a review!"
-        redirect_to toilet_path(@toilet), status: :unprocessable_entity
+        respond_to do |format|
+          format.json { render json: { errors: true } }
+        end
       end
     else
       flash[:alert] = "You need to be logged in to leave a review."
