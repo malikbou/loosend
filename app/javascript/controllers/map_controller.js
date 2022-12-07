@@ -18,24 +18,33 @@ export default class extends Controller {
     // Add geolocate control to the map.
     const geolocate = new mapboxgl.GeolocateControl({
       positionOptions: {
-      enableHighAccuracy: true
+        enableHighAccuracy: true
       },
       trackUserLocation: true,
       showUserHeading: true
-      });
-      // Add the control to the map.
+    });
+    // Add the control to the map.
+
+
+    // Auto trigger logic
+    const currentPage = this.pageValue
+
+    if (currentPage === 'index') {
       this.map.addControl(geolocate);
+      this.map.on('load', () => {
+        geolocate.trigger();
+      });
+    }
 
-      // Auto trigger logic
-      const currentPage = this.pageValue
+    if (currentPage === 'show') {
+      geolocate._updateCamera = () => {}
+      this.map.addControl(geolocate)
 
-      if (currentPage === 'index') {
-        console.log('add load trigger')
-        this.map.on('load', () => {
-          geolocate.trigger();
-        });
-      }
-
+      this.map.on('load', () => {
+        geolocate.trigger();
+        // this.#fitMapToMarkers()
+      });
+    }
   }
 
   // for toilet index page

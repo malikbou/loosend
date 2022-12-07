@@ -32,13 +32,6 @@ class ToiletsController < ApplicationController
         image_url: helpers.asset_url("toilet-paper.png")
       }
     ]
-
-    @marker = {
-      lat: @toilet.latitude,
-      lng: @toilet.longitude,
-      info_window: render_to_string(partial: "info_window", locals: {toilet: @toilet}),
-      image_url: helpers.asset_url("pin.png")
-    }
   end
 
   private
