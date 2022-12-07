@@ -20,10 +20,28 @@ class Toilet < ApplicationRecord
   def avgratingrounded
     if reviews.pluck(:toilet_rating).present?
       avgrating = reviews.pluck(:toilet_rating).sum / reviews.pluck(:toilet_rating).count.to_f
-      "#{avgrating.round(2)} ⭐️"
+      avgrating.round(1)
     else
       "No ratings yet"
     end
+  end
+
+  def ratings_category
+    if avgratingrounded.is_a? Float
+      if (avgratingrounded <= 5) && (avgratingrounded > 4.7)
+        "Excellent"
+      elsif (avgratingrounded <= 4.7) && (avgratingrounded > 4.5)
+        "Very Good"
+      elsif (avgratingrounded <= 4.5) && (avgratingrounded >= 4)
+        "Good"
+      else
+        ""
+      end
+    end
+  end
+
+  def rating_html
+    "⭐️ #{self.avgratingrounded} #{self.ratings_category} (#{self.reviews.count})"
   end
 
   def distance(latitude, longitude)
