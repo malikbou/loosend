@@ -28,7 +28,7 @@ export default class extends Controller {
       .then(response => response.json())
       .then((data) => {
         if (data.errors) {
-          this.ratingTarget.innerText = "Please give a rating"
+          this.ratingTarget.innerText = data.message
         } else {
           let myModal = new Modal(document.getElementById('exampleModal'), {})
           myModal.show()

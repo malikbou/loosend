@@ -22,12 +22,13 @@ class ReviewsController < ApplicationController
         # redirect_to toilet_path(@toilet)
       else
         respond_to do |format|
-          format.json { render json: { errors: true } }
+          format.json { render json: { errors: true, message: "Please give a rating" } }
         end
       end
     else
-      flash[:alert] = "You need to be logged in to leave a review."
-      redirect_to new_user_session_path
+      respond_to do |format|
+        format.json { render json: { errors: true, message: "Please log in" } }
+      end
     end
   end
 
