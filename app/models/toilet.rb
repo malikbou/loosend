@@ -20,7 +20,7 @@ class Toilet < ApplicationRecord
   def avgratingrounded
     if reviews.pluck(:toilet_rating).present?
       avgrating = reviews.pluck(:toilet_rating).sum / reviews.pluck(:toilet_rating).count.to_f
-      "#{avgrating.round(1)} ⭐️"
+      "⭐️ #{avgrating.round(1)}"
     else
       "No ratings yet"
     end
