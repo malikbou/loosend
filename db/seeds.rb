@@ -54,9 +54,9 @@ user5 = {
   last_name: "Bouaoudia"
 }
 user6 = {
-  email: "felipe@loosend.com",
+  email: "filipe@loosend.com",
   password: "ilovetopoop",
-  first_name: "Felipe",
+  first_name: "Filipe",
   last_name: "Nossa"
 }
 [user1, user2, user3, user4, user5, user6].each do |attributes|
@@ -162,12 +162,12 @@ puts "\n"
 
 puts "Creating FAKE toilets..."
 addresses = LONDON.dup
-100.times do
+LONDON.length.times do
   attributes = {
     name: Faker::Book.title,
     address: addresses.sample,
-    opens_at: '10:00:00',
-    closes_at: '19:00:00',
+    opens_at: "#{rand(8..12)}:00:00",
+    closes_at: "#{rand(13..21)}:00:00",
     fee: rand(0.00..10.00).round(2),
     toilet_code: rand(1000..9999),
     rating: rand(3..5)
@@ -185,9 +185,10 @@ puts "Finished FAKE toilets with toilet features!"
 puts "\n"
 
 puts "Creating reviews from random users for random toilets..."
-random_users = User.limit(6).order("RANDOM()")
 random_toilets = Toilet.limit(100).order("RANDOM()")
+random_users = User.limit(6).order("RANDOM()")
 300.times do
+  # add fake rating & comments to toilet
   random_comment = [Faker::Movies::Lebowski.quote, Faker::TvShows::MichaelScott.quote, Faker::Quote.famous_last_words]
   attributes = {
     user_id: random_users.sample.id,
@@ -199,3 +200,17 @@ random_toilets = Toilet.limit(100).order("RANDOM()")
   puts "\t#{review.user.first_name} wrote a review for #{review.toilet.name}: #{review.comment}"
 end
 puts "Finished reviews!"
+
+puts "Adding ratings from random users for random toilets..."
+# add only fake ratings to toilet
+Toilet.all.each do |toilet|
+  rand(3..100).times do
+    attributes = {
+      user_id: random_users.sample.id,
+      toilet_id: toilet.id,
+      toilet_rating: rand(3..5)
+    }
+    review = Review.create!(attributes)
+    puts "\t#{review.user.first_name} rated #{review.toilet.name} #{review.toilet_rating} ⭐️"
+  end
+end
