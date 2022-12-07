@@ -5,7 +5,7 @@ class Feature < ApplicationRecord
   def icon
     case name
     when 'Gender Neutral'
-      return "iconsss.png"
+      return "blue-uni.png"
     when 'Enclosed Stall'
       return "door.png"
     when 'Hand Dryer'
