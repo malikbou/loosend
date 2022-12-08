@@ -5,8 +5,10 @@ class ApplicationController < ActionController::Base
   private
 
   def redirect_root_domain
-    return unless request.host === 'loosend.co'
-
-    redirect_to("#{request.protocol}www.loosend.co#{request.fullpath}", status: 301)
+    if Rails.env.production?
+      if request.host === "loosend.co"
+        redirect_to "https://www.loosend.co#{request.fullpath}", status: 301
+      end
+    end
   end
 end
