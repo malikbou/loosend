@@ -75,9 +75,6 @@ puts "Finished features!"
 puts "\n"
 
 puts "Creating REAL toilets..."
-# BREWHOUSE
-# Bad toilet rating
-# features = ?
 toilet1 = {
   name: "Brewhouse & Kitchen",
   address: "397-400 Geffrye St London E2 8HZ",
@@ -163,7 +160,7 @@ puts "Finished REAL toilets with toilet features!"
 puts "\n"
 
 puts "Adding features for Moko Moko & Long White Cloud Cafe..."
-Toilet.find([6,7]).each do |toilet|
+Toilet.find([1,6,7]).each do |toilet|
   Feature.find([5,6,8]).each do |feature|
     ToiletFeature.create(toilet_id: toilet.id, feature_id: feature.id)
     puts "\tAdded #{feature.name} feature to #{toilet.name}"
@@ -175,7 +172,7 @@ puts "Finished adding features for Moko Moko & Long White Cloud Cafe..."
 puts "\n"
 
 puts "Adding features to other REAL toilets!"
-Toilet.where.not(id: [6,7]).each do |toilet|
+Toilet.where.not(id: [1,6,7]).each do |toilet|
   Feature.all.sample(rand(3..5)).each do |feature|
     ToiletFeature.create(toilet_id: toilet.id, feature_id: feature.id)
     puts "\tAdded #{feature.name} feature to #{toilet.name}"
@@ -184,20 +181,40 @@ end
 puts "Finished adding features to other REAL toilets!"
 puts "\n"
 
-puts "Adding ratings from random users to REAL toilets..."
-random_users = User.limit(6).order("RANDOM()")
+puts "Adding ratings from REAL users to REAL toilets..."
+random_users = User.offset(1)
 # add only fake ratings to toilet
 Toilet.all.each do |toilet|
   rand(3..100).times do
+    toilet.id == 1 ? toilet_rating = rand(0..3) : toilet_rating = rand(4..5) # bad reviews brewhouse
+    puts "Toilet rating: #{toilet_rating}"
     attributes = {
       user_id: random_users.sample.id,
       toilet_id: toilet.id,
-      toilet_rating: rand(4..5)
+      toilet_rating: toilet_rating
     }
     review = Review.create!(attributes)
     puts "\t#{review.user.first_name} rated #{review.toilet.name} #{review.toilet_rating} ⭐️"
   end
 end
+
+# Seed FAKE revies to Long White Cloud Cafe
+reviews = ["My baby boy threw up on me (again). So glad I was able to find a place with a hand dryer to clean up the mess.",
+  "Excellent toilet! Felt like I was sitting on a throne.",
+  "The hand soap here is heavenly. This is my go-to toilet when I’m in the area."
+]
+reviews.each do |review|
+  # add fake rating & comments to toilet
+  attributes = {
+    user_id: random_users.sample.id,
+    toilet_id: 7,
+    toilet_rating: rand(4..5),
+    comment: review
+  }
+  review = Review.create!(attributes)
+  puts "\t#{review.user.first_name} wrote a review for #{review.toilet.name}: #{review.comment}"
+end
+puts "Finished reviews!"
 
 puts "Creating FAKE toilets..."
 addresses = LONDON.dup
@@ -225,7 +242,6 @@ puts "\n"
 
 puts "Creating reviews from random users to FAKE toilets..."
 random_toilets = Toilet.offset(8)
-# random_toilets = fake_toilets.order("RANDOM()")
 
 300.times do
   # add fake rating & comments to toilet
