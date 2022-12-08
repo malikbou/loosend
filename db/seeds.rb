@@ -169,7 +169,7 @@ Toilet.find([brewhouse, moko, cloud]).each do |toilet|
     puts "\tAdded #{feature.name} feature to #{toilet.name}"
   end
   # Add Mirror to Long white but not MokoMoko
-  ToiletFeature.create(toilet_id: toilet.id, feature_id: Feature.find_by(name: "Mirror").id) if toilet.id == cloud
+  ToiletFeature.create(toilet_id: toilet.id, feature_id: Feature.find_by(name: "Mirror").id) if toilet.id.in?([brewhouse, cloud])
 end
 puts "Finished adding features for Moko Moko & Long White Cloud Cafe..."
 puts "\n"
