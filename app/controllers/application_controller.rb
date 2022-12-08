@@ -9,4 +9,8 @@ class ApplicationController < ActionController::Base
 
     redirect_to("#{request.protocol}www.loosend.co#{request.fullpath}", status: 301)
   end
+
+  def default_url_options
+    { host: ENV["DOMAIN"] || "localhost:3000" }
+  end
 end

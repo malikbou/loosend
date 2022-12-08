@@ -1,4 +1,7 @@
 <%= render "shared/navbar" %>
+<% content_for :meta_title, "#{@toilet.name} is on #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_description, @toilet.address %>
+<% content_for :meta_image %>
 
 <div class="map-showpage" style="width: 100%; height: 400px;"
   data-controller="map"
